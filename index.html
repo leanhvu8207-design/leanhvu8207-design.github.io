@@ -3,244 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Của Tôi</title>
+    <title>Lê Anh Vũ | Digital Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset CSS cơ bản */
+        :root {
+            --primary-red: #d91c1c;
+            --dark-red: #8a0303;
+            --fiery-orange: #f25c05;
+            --glow-yellow: #f2b705;
+            --text-light: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--dark-red);
+            color: var(--text-light);
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 20px 0;
+        /* Hiệu ứng nền mây và lửa chuyển động */
+        .background-animation {
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(45deg, var(--dark-red), var(--primary-red), var(--fiery-orange));
+            background-size: 400% 400%;
+            animation: gradientFire 15s ease infinite;
         }
 
-        .nav-container {
-            width: 80%;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        @keyframes gradientFire {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
+        /* Đám mây mờ trôi */
+        .cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s infinite alternate ease-in-out;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
+        .cloud-1 {
+            width: 400px; height: 400px;
+            background: var(--glow-yellow);
+            top: -10%; left: -10%;
         }
 
-        nav ul li {
-            margin-left: 20px;
+        .cloud-2 {
+            width: 500px; height: 500px;
+            background: var(--primary-red);
+            bottom: -20%; right: -10%;
+            animation-duration: 25s;
         }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(50px) scale(1.1); }
         }
 
-        nav ul li a:hover {
-            color: #1abc9c;
-        }
-
-        /* Các Section chính */
-        section {
-            padding: 100px 20px 60px 20px;
+        /* Bố cục chính */
+        .container {
             max-width: 1000px;
-            margin: auto;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .hero {
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(242, 183, 5, 0.4);
+        }
+
+        header {
             text-align: center;
-            padding: 150px 20px 100px 20px;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
+            margin-bottom: 50px;
         }
 
-        .hero h1 {
-            font-size: 48px;
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
             margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            opacity: 0.9;
+            background: -webkit-linear-gradient(left, #fff, var(--glow-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 15px rgba(242, 183, 5, 0.5);
         }
 
         h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            color: #2c3e50;
+            font-size: 1.8rem;
+            color: var(--glow-yellow);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--fiery-orange);
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
-        h2::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: #1abc9c;
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .subtitle {
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
 
-        /* Thẻ dự án */
-        .project-grid {
+        .about-text {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Lưới dự án */
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        .project-card {
-            background: #fff;
+        .project-item {
+            background: rgba(0, 0, 0, 0.2);
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            border-radius: 15px;
+            border-left: 4px solid var(--glow-yellow);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card h3 {
+        .project-item h3 {
+            font-size: 1.3rem;
             margin-bottom: 10px;
-            color: #2c3e50;
+            color: var(--glow-yellow);
         }
 
-        /* Kỹ năng */
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+        ul {
+            margin-left: 20px;
+            margin-top: 15px;
         }
 
-        .skill-tag {
-            background: #e0e0e0;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 500;
+        li {
+            margin-bottom: 10px;
         }
 
-        /* Liên hệ */
-        .contact-info {
+        .footer-text {
             text-align: center;
-            font-size: 18px;
-        }
-
-        .contact-info p {
-            margin: 10px 0;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Thanh điều hướng (Navbar) -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">MY PORTFOLIO</div>
-            <nav>
-                <ul>
-                    <li><a href="#about">Giới Thiệu</a></li>
-                    <li><a href="#projects">Dự Án</a></li>
-                    <li><a href="#skills">Kỹ Năng</a></li>
-                    <li><a href="#contact">Liên Hệ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Khung nền -->
+    <div class="background-animation">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+    </div>
 
-    <!-- Phần Chào Mừng (Hero Section) -->
-    <section class="hero">
-        <h1>Xin chào, tôi là [Tên Của Bạn]</h1>
-        <p>Một Lập trình viên Front-End / Nhà thiết kế Web đam mê sáng tạo</p>
-    </section>
+    <div class="container">
+        <!-- Header -->
+        <header class="glass-card">
+            <h1>Lê Anh Vũ</h1>
+            <p class="subtitle">MSSV: 25023077 | K70 - Artificial Intelligence (UET)</p>
+        </header>
 
-    <!-- Phần Giới Thiệu Bản Thân -->
-    <section id="about">
-        <h2>Giới Thiệu Bản Thân</h2>
-        <p style="text-align: center; max-width: 800px; margin: auto;">
-            Tôi là một người yêu thích công nghệ và có niềm đam mê lớn trong việc tạo ra các giao diện website đẹp mắt, tối ưu trải nghiệm người dùng. Với [X] năm kinh nghiệm, tôi luôn cố gắng học hỏi các công nghệ mới để hoàn thiện bản thân mỗi ngày.
-        </p>
-    </section>
-
-    <!-- Phần Dự Án -->
-    <section id="projects">
-        <h2>Dự Án Tiêu Biểu</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Dự án Website E-Commerce</h3>
-                <p>Website bán hàng trực tuyến tích hợp thanh toán, quản lý giỏ hàng và giao diện responsive hoàn chỉnh.</p>
+        <!-- Giới thiệu bản thân -->
+        <section class="glass-card">
+            <h2>Về Bản Thân</h2>
+            <div class="about-text">
+                <p>Chào bạn, mình là Anh Vũ! Là một sinh viên năm nhất nhiệt huyết chuyên ngành Trí tuệ nhân tạo tại Trường Đại học Công nghệ (UET) - ĐHQGHN, mình luôn bị cuốn hút bởi sự logic của Toán học và sức mạnh kiến tạo từ các dòng code Python, C++.</p>
+                <br>
+                <p>Bên cạnh việc miệt mài gõ phím trên chiếc laptop Lenovo LOQ quen thuộc, mình là một người đam mê các hoạt động mang tính cạnh tranh. Từ những pha dẫn bóng rực lửa trên sân bóng rổ, đến những pha xử lý chiến thuật căng thẳng trong các trận đấu Valorant hay Liên Minh Huyền Thoại, tất cả đều giúp mình rèn luyện phản xạ nhạy bén và tư duy giải quyết vấn đề dưới áp lực cao.</p>
+                <br>
+                <p><strong>Định hướng tương lai:</strong> Mình đang rèn luyện không ngừng thông qua các cuộc thi (như IAI CONNECT 2026) và các bài kiểm tra năng lực (IELTS) để vươn tới mục tiêu trở thành một Kỹ sư AI thực thụ. Xa hơn nữa, mình ấp ủ ước mơ ứng dụng công nghệ để mở một mô hình kinh doanh nhỏ của riêng mình, mang trí tuệ nhân tạo vào thực tiễn.</p>
             </div>
-            <div class="project-card">
-                <h3>Ứng dụng Quản lý Công việc</h3>
-                <p>Một ứng dụng web giúp người dùng quản lý deadline, phân chia công việc theo phương pháp Kanban.</p>
+        </section>
+
+        <!-- Danh sách dự án / Bài tập -->
+        <section class="glass-card">
+            <h2>Hồ Sơ Dự Án (Portfolio)</h2>
+            <p>Tổng hợp quá trình 6 tuần thực hành ứng dụng công nghệ số và AI tạo sinh:</p>
+            
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>1. Quản lý Tệp & Thư Mục</h3>
+                    <p>Thiết lập thành thạo cấu trúc cây thư mục logic (ví dụ: ThucHanh_LeAnhVu) và thực hiện các thao tác quản lý dữ liệu an toàn trên hệ điều hành[cite: 1].</p>
+                </div>
+                
+                <div class="project-item">
+                    <h3>2. Tìm kiếm Thông tin Học thuật</h3>
+                    <p>Ứng dụng các toán tử tìm kiếm nâng cao để tổng hợp báo cáo về "Học tăng cường sâu (Deep Reinforcement Learning) trong Trí tuệ nhân tạo cho Trò chơi" từ các nguồn uy tín[cite: 2].</p>
+                </div>
+
+                <div class="project-item">
+                    <h3>3. Kỹ thuật Viết Prompt (Prompt Engineering)</h3>
+                    <p>Thực nghiệm và so sánh các cấp độ viết lệnh cho AI. Tối ưu hóa prompt bằng cách gán vai trò (Role Assignment) và tư duy từng bước (Chain-of-Thought) để học tập hiệu quả[cite: 3].</p>
+                </div>
+
+                <div class="project-item">
+                    <h3>4. Hợp tác Trực tuyến</h3>
+                    <p>Điều phối dự án "AI Study Assistant" bằng việc phối hợp nhuần nhuyễn các công cụ như Trello (quản lý thẻ nhiệm vụ), Google Docs, Google Drive và nền tảng giao tiếp Discord[cite: 4].</p>
+                </div>
+
+                <div class="project-item">
+                    <h3>5. Sáng tạo Nội dung Số với AI</h3>
+                    <p>Thiết kế slide "Tương lai của AI trong lập trình C++". Kết hợp sức mạnh lập luận của Google Gemini, tạo hình ảnh minh họa bằng DALL-E 3 và hoàn thiện bố cục qua Canva AI[cite: 5].</p>
+                </div>
+
+                <div class="project-item">
+                    <h3>6. Liêm chính Đạo đức AI</h3>
+                    <p>Xây dựng infographic "Sử dụng AI có trách nhiệm trong học thuật" với bộ 6 nguyên tắc cá nhân: minh bạch trích dẫn, không sao chép nguyên văn và luôn ưu tiên tư duy độc lập[cite: 6].</p>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Giao diện Landing Page</h3>
-                <p>Thiết kế và tối ưu hóa landing page cho chiến dịch marketing của một thương hiệu công nghệ.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Phần Kỹ Năng -->
-    <section id="skills">
-        <h2>Kỹ Năng Của Tôi</h2>
-        <div class="skills-list">
-            <span class="skill-tag">HTML5 / CSS3</span>
-            <span class="skill-tag">JavaScript (ES6+)</span>
-            <span class="skill-tag">ReactJS</span>
-            <span class="skill-tag">Bootstrap / Tailwind CSS</span>
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">UI/UX Design (Figma)</span>
-        </div>
-    </section>
+        <!-- Tổng kết -->
+        <section class="glass-card">
+            <h2>Tổng Kết</h2>
+            <p>Portfolio này không chỉ là bản báo cáo bài tập, mà là minh chứng cho tinh thần không ngừng học hỏi và sự sẵn sàng thích nghi với kỷ nguyên số. Kiến thức về lập trình, khả năng làm chủ công cụ AI và một tinh thần cạnh tranh tích cực sẽ là ngọn lửa dẫn lối cho mình trên con đường trở thành một Kỹ sư AI xuất sắc.</p>
+        </section>
 
-    <!-- Phần Liên Hệ -->
-    <section id="contact">
-        <h2>Liên Hệ Chân Thành</h2>
-        <div class="contact-info">
-            <p><strong>Email:</strong> email_cua_ban@gmail.com</p>
-            <p><strong>Số điện thoại:</strong> 0123 456 789</p>
-            <p><strong>Địa chỉ:</strong> Hà Nội, Việt Nam</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 [Tên Của Bạn]. Bản quyền thuộc về tác giả.</p>
-    </footer>
+        <p class="footer-text">© 2026 Lê Anh Vũ | Designed with logic, fire & passion.</p>
+    </div>
 
 </body>
 </html>
