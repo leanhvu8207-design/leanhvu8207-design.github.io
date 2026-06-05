@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lê Anh Vũ | AI Engineer Portfolio</title>
+    <!-- Google Fonts for futuristic tech style -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,7 +20,12 @@
             --border-glass: rgba(255, 255, 255, 0.08);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
         body {
             background-color: var(--bg-void);
@@ -31,133 +37,602 @@
             background-attachment: fixed;
         }
 
+        /* Ambient scanline and tech grid effects */
         body::before {
-            content: " "; display: block; position: fixed;
+            content: " ";
+            display: block;
+            position: fixed;
             top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 99999; opacity: 0.15; pointer-events: none;
+            z-index: 99999;
+            opacity: 0.15;
+            pointer-events: none;
             background-size: 100% 4px, 6px 100%;
         }
 
-        /* Nav System */
+        /* Futuristic Navigation System */
         .cyber-nav {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-glass); z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 40px; height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            height: 70px;
         }
+
         .nav-logo {
-            font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.4rem;
-            letter-spacing: 2px; color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-glow);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-glow);
         }
-        .nav-tabs { display: flex; gap: 10px; height: 100%; align-items: center; }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            height: 100%;
+            align-items: center;
+        }
+
         .nav-btn {
-            background: transparent; border: none; color: var(--cyber-silver);
-            font-family: 'Orbitron', sans-serif; font-weight: 600; font-size: 0.85rem;
-            letter-spacing: 1px; padding: 10px 18px; cursor: pointer;
-            transition: all 0.3s ease; position: relative; border-radius: 4px;
+            background: transparent;
+            border: none;
+            color: var(--cyber-silver);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            padding: 10px 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 4px;
         }
+
         .nav-btn:hover, .nav-btn.active {
-            color: var(--neon-blue); background: rgba(0, 240, 255, 0.05); text-shadow: 0 0 8px var(--neon-glow);
+            color: var(--neon-blue);
+            background: rgba(0, 240, 255, 0.05);
+            text-shadow: 0 0 8px var(--neon-glow);
         }
+
         .nav-btn.active::after {
-            content: ''; position: absolute; bottom: -15px; left: 0;
-            width: 100%; height: 2px; background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
         }
 
-        /* App Shell */
-        .app-container { max-width: 1300px; margin: 110px auto 60px auto; padding: 0 20px; min-height: calc(100vh - 170px); }
-        .tab-content { display: none; animation: fadeInShell 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        .tab-content.active { display: block; }
-        @keyframes fadeInShell { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        /* Application Shell Layout */
+        .app-container {
+            max-width: 1300px;
+            margin: 110px auto 60px auto;
+            padding: 0 20px;
+            min-height: calc(100vh - 170px);
+        }
 
-        /* Dashboard Elements */
+        .tab-content {
+            display: none;
+            animation: fadeInShell 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInShell {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Shared Dashboard Elements */
         .glass-panel {
-            background: var(--bg-card); backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass); border-radius: 16px;
-            padding: 40px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); margin-bottom: 35px;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            margin-bottom: 35px;
         }
-        .panel-heading {
-            font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.8rem;
-            color: var(--neon-blue); margin-bottom: 25px; display: flex; align-items: center; gap: 12px;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .panel-heading::before { content: '//'; color: var(--electric-blue); }
 
-        /* Button */
+        .panel-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .panel-heading::before {
+            content: '//';
+            color: var(--electric-blue);
+        }
+
+        /* Hero Button */
         .hero-btn {
             background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(59, 130, 246, 0.15));
-            border: 1px solid var(--neon-blue); color: var(--neon-blue);
-            font-family: 'Orbitron', sans-serif; font-weight: 700; padding: 16px 35px;
-            border-radius: 8px; cursor: pointer; letter-spacing: 2px;
-            transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0, 240, 255, 0.1); display: inline-block;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 16px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+            display: inline-block;
         }
-        .hero-btn:hover { background: var(--neon-blue); color: var(--bg-void); box-shadow: 0 0 25px rgba(0, 240, 255, 0.4); transform: translateY(-2px); }
 
-        /* PAGE 1: HERO */
-        .hero-viewport { height: 70vh; display: flex; flex-direction: column; justify-content: center; padding-left: 60px; }
-        .hero-tag { font-family: 'Orbitron', sans-serif; color: var(--electric-blue); letter-spacing: 5px; margin-bottom: 15px; }
-        .hero-title { font-family: 'Orbitron', sans-serif; font-size: 4.8rem; font-weight: 900; background: linear-gradient(135deg, var(--text-pure) 30%, var(--neon-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; }
-        .hero-description { font-size: 1.25rem; font-weight: 300; color: var(--cyber-silver); max-width: 700px; line-height: 1.7; margin-bottom: 40px; }
+        .hero-btn:hover {
+            background: var(--neon-blue);
+            color: var(--bg-void);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+        }
 
-        /* PAGE 2: PROFILE */
-        .profile-layout { display: grid; grid-template-columns: 350px 1fr; gap: 30px; }
-        .profile-quickcard { background: rgba(10, 17, 36, 0.8); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 16px; padding: 30px; text-align: center; }
-        .quickcard-avatar { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, var(--deep-sapphire), var(--neon-blue)); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-size: 2.2rem; font-weight: 900; border: 2px solid var(--neon-blue); }
-        .quickcard-name { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; }
-        .quickcard-uid { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--neon-blue); margin-bottom: 25px; }
-        .quickcard-meta { text-align: left; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; }
-        .meta-row { margin-bottom: 12px; font-size: 0.9rem; }
-        .meta-label { color: var(--cyber-silver); font-size: 0.8rem; text-transform: uppercase; }
-        .meta-val { font-weight: 500; color: var(--text-pure); margin-top: 2px; }
-        .deep-dive-title { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 15px; border-left: 3px solid var(--electric-blue); padding-left: 12px; margin-top: 25px; }
+        /* PAGE 1: HERO LANDING */
+        .hero-viewport {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        .hero-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--electric-blue);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--text-pure) 30%, var(--neon-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--cyber-silver);
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* PAGE 2: PROFILE GRID ARCHITECTURE */
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+        }
+
+        .profile-quickcard {
+            background: rgba(10, 17, 36, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+            text-align: center;
+        }
+
+        .quickcard-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--deep-sapphire), var(--neon-blue));
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-pure);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .quickcard-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .quickcard-uid {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--neon-blue);
+            margin-bottom: 25px;
+        }
+
+        .quickcard-meta {
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        .meta-row {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .meta-label {
+            color: var(--cyber-silver);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-val {
+            font-weight: 500;
+            color: var(--text-pure);
+            margin-top: 2px;
+        }
+
+        .deep-dive-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-pure);
+            margin-bottom: 15px;
+            border-left: 3px solid var(--electric-blue);
+            padding-left: 12px;
+            margin-top: 25px;
+        }
+
         .deep-dive-title:first-of-type { margin-top: 0; }
 
         /* PAGE 3: LABS OVERVIEW TILES */
-        .labs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 25px; }
-        .lab-tile { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 12px; padding: 25px; transition: all 0.3s ease; }
-        .lab-tile:hover { border-color: rgba(0, 240, 255, 0.4); transform: translateY(-3px); }
-        .tile-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .tile-tag { font-family: 'Fira Code', monospace; font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: var(--electric-blue); padding: 4px 10px; border-radius: 4px; }
-        .tile-status { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--neon-blue); }
-        .tile-title { font-family: 'Orbitron', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
-        .tile-desc { font-size: 0.9rem; color: var(--cyber-silver); line-height: 1.5; margin-bottom: 20px; height: 45px; overflow: hidden; }
-        .tile-action-btn { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-pure); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; padding: 10px 0; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; }
-        .lab-tile:hover .tile-action-btn { background: linear-gradient(135deg, var(--deep-sapphire), rgba(0, 240, 255, 0.2)); border-color: var(--neon-blue); color: var(--neon-blue); }
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 25px;
+        }
 
-        /* PAGE 4: LOGS LAYOUT */
-        .logs-layout { display: flex; gap: 25px; align-items: flex-start; }
-        .logs-sidebar { width: 280px; flex-shrink: 0; background: rgba(10, 17, 36, 0.8); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px 10px; position: sticky; top: 100px; display: flex; flex-direction: column; gap: 5px; }
-        .log-nav-btn { background: transparent; border: none; color: var(--cyber-silver); text-align: left; padding: 12px 15px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: all 0.3s ease; }
-        .log-nav-btn:hover { background: rgba(255, 255, 255, 0.05); color: var(--text-pure); }
-        .log-nav-btn.active { background: rgba(0, 240, 255, 0.1); color: var(--neon-blue); border-left: 3px solid var(--neon-blue); border-radius: 0 8px 8px 0; }
-        .logs-main-content { flex-grow: 1; background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--border-glass); border-radius: 12px; padding: 40px; min-height: 600px; }
-        .log-pane { display: none; animation: fadeInShell 0.4s ease forwards; }
-        .log-pane.active { display: block; }
-        .log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .log-title { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text-pure); }
-        .log-badge { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--neon-blue); border: 1px solid var(--neon-blue); padding: 3px 12px; border-radius: 20px; background: rgba(0, 240, 255, 0.05); }
-        .log-section-subtitle { font-family: 'Orbitron', sans-serif; font-size: 1.05rem; color: var(--electric-blue); margin: 25px 0 15px 0; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-        .log-section-subtitle::before { content: '>'; color: var(--neon-blue); }
+        .lab-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* Typography & Images */
-        .image-wrapper { text-align: center; margin: 25px 0; }
-        .image-wrapper img { width: 100%; max-width: 800px; border-radius: 10px; border: 1px solid var(--neon-blue); box-shadow: 0 0 15px rgba(0, 240, 255, 0.15); }
-        .code-window { background: #020617; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin: 15px 0; }
-        .cyber-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9rem; }
-        .cyber-table th { background: rgba(30, 41, 59, 0.6); font-family: 'Orbitron', sans-serif; color: var(--neon-blue); text-align: left; padding: 12px 16px; border-bottom: 2px solid rgba(0, 240, 255, 0.2); }
-        .cyber-table td { padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); color: var(--cyber-silver); }
-        p { font-size: 0.95rem; color: var(--cyber-silver); line-height: 1.7; margin-bottom: 15px; }
-        strong { color: var(--text-pure); }
-        .highlight-text { color: var(--neon-blue); }
-        .cyber-blockquote { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--neon-blue); padding: 25px; border-radius: 0 12px 12px 0; margin: 30px 0; font-size: 1.1rem; line-height: 1.8; color: var(--text-pure); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
-        ul { margin-left: 20px; color: var(--cyber-silver); margin-bottom: 15px; }
-        li { margin-bottom: 8px; }
+        .lab-tile:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .tile-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tile-tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--electric-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .tile-status {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--neon-blue);
+            letter-spacing: 1px;
+        }
+
+        .tile-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-pure);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tile-desc {
+            font-size: 0.9rem;
+            color: var(--cyber-silver);
+            line-height: 1.5;
+            margin-bottom: 20px;
+            height: 45px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .tile-action-btn {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-pure);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 10px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 1px;
+        }
+
+        .lab-tile:hover .tile-action-btn {
+            background: linear-gradient(135deg, var(--deep-sapphire), rgba(0, 240, 255, 0.2));
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-glow);
+        }
+
+        /* PAGE 4: NOTION-LIKE SPLIT LAYOUT FOR REPORTS */
+        .logs-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .logs-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            background: rgba(10, 17, 36, 0.8);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 20px 10px;
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.02);
+        }
+
+        .log-nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--cyber-silver);
+            text-align: left;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .log-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-pure);
+        }
+
+        .log-nav-btn.active {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--neon-blue);
+            border-left: 3px solid var(--neon-blue);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .logs-main-content {
+            flex-grow: 1;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 40px;
+            min-height: 600px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .log-pane {
+            display: none;
+            animation: fadeInShell 0.4s ease forwards;
+        }
+
+        .log-pane.active {
+            display: block;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .log-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-pure);
+        }
+
+        .log-badge {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 3px 12px;
+            border-radius: 20px;
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .log-section-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.05rem;
+            color: var(--electric-blue);
+            margin: 25px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .log-section-subtitle::before {
+            content: '>';
+            color: var(--neon-blue);
+        }
+
+        /* Image Placeholder Block */
+        .image-placeholder {
+            width: 100%;
+            min-height: 250px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .image-placeholder:hover {
+            border-color: var(--neon-blue);
+            background: rgba(0, 240, 255, 0.02);
+        }
+        .placeholder-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        .placeholder-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--cyber-silver);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .placeholder-hint {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 10px;
+        }
+
+        /* Technical Data Layouts */
+        .code-window {
+            background: #020617;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .cyber-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        .cyber-table th {
+            background: rgba(30, 41, 59, 0.6);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neon-blue);
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid rgba(0, 240, 255, 0.2);
+        }
+        .cyber-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--cyber-silver);
+        }
+        .cyber-table tr:hover td {
+            color: var(--text-pure);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* General Typography */
+        p {
+            font-size: 0.95rem;
+            color: var(--cyber-silver);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        strong {
+            color: var(--text-pure);
+        }
+        .highlight-text {
+            color: var(--neon-blue);
+        }
+
+        /* Highlight box for Conclusion */
+        .cyber-blockquote {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--neon-blue);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-pure);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
 
+    <!-- Cyberpunk Shell Fixed Navigation -->
     <nav class="cyber-nav">
         <div class="nav-logo">ANH VU // AI PORTFOLIO</div>
         <div class="nav-tabs">
@@ -169,8 +644,10 @@
         </div>
     </nav>
 
+    <!-- Core App Container -->
     <div class="app-container">
 
+        <!-- PAGE 1: HERO LANDING VIEW -->
         <div id="hero-shell" class="tab-content active">
             <div class="hero-viewport">
                 <div class="hero-tag">[ CORE_SYSTEM_INIT ]</div>
@@ -182,8 +659,10 @@
             </div>
         </div>
 
+        <!-- PAGE 2: PERSONAL ACCOUNT & DEEP PROFILE -->
         <div id="profile-shell" class="tab-content">
             <div class="profile-layout">
+                <!-- Mini Card Brief Info -->
                 <div class="profile-quickcard">
                     <div class="quickcard-avatar">AV</div>
                     <div class="quickcard-name">Lê Anh Vũ</div>
@@ -209,73 +688,114 @@
                     </div>
                 </div>
 
+                <!-- Deep Dive Analytical Profile -->
                 <div class="glass-panel">
                     <div class="panel-heading">Hồ sơ năng lực chuyên sâu</div>
                     
                     <div class="deep-dive-title">1. Nền tảng lập trình & Thuật toán</div>
-                    <p>Sở hữu tư duy toán logic độc lập, thực hành chuyên sâu lập trình cú pháp hệ thống trên ngôn ngữ <strong>Python</strong> và <strong>C++</strong>. Thấu hiểu sâu sắc cấu trúc dữ liệu và giải thuật, có khả năng phân tích độ phức tạp thời gian thuật toán và can thiệp bộ nhớ máy tính tối ưu thông qua hệ thống thư viện STL và xử lý cấu trúc con trỏ (pointers) trong lập trình ứng dụng.</p>
+                    <p>
+                        Sở hữu tư duy toán logic độc lập, thực hành chuyên sâu lập trình cú pháp hệ thống trên ngôn ngữ <strong>Python</strong> và <strong>C++</strong>. Thấu hiểu sâu sắc cấu trúc dữ liệu và giải thuật, có khả năng phân tích độ phức tạp thời gian thuật toán và can thiệp bộ nhớ máy tính tối ưu thông qua hệ thống thư viện STL và xử lý cấu trúc con trỏ (pointers) trong lập trình ứng dụng.
+                    </p>
 
                     <div class="deep-dive-title">2. Nền tảng Toán học cho Học máy</div>
-                    <p>Nghiên cứu sâu các module toán học nền tảng phục vụ trực tiếp cho Trí tuệ Nhân tạo bao gồm: <strong>Đại số tuyến tính</strong> (Ma trận biến đổi không gian, Vector đặc trưng, Giá trị đặc trưng), <strong>Giải tích đa biến</strong> (Đạo hàm riêng, Gradient Descent để tối ưu hóa hàm mất mát) và hệ thống phương trình vi phân ứng dụng tính toán mô phỏng.</p>
+                    <p>
+                        Nghiên cứu sâu các module toán học nền tảng phục vụ trực tiếp cho Trí tuệ Nhân tạo bao gồm: <strong>Đại số tuyến tính</strong> (Ma trận biến đổi không gian, Vector đặc trưng, Giá trị đặc trưng), <strong>Giải tích đa biến</strong> (Đạo hàm riêng, Gradient Descent để tối ưu hóa hàm mất mát) và hệ thống phương trình vi phân ứng dụng tính toán mô phỏng.
+                    </p>
 
                     <div class="deep-dive-title">3. Tầm nhìn Công nghệ & Khởi nghiệp</div>
-                    <p style="margin-bottom: 35px;">Kết hợp định hướng nghiên cứu sâu chuyên môn kỹ thuật cao về các kiến trúc học sâu (Deep Learning) cùng tư duy quản trị kinh doanh thực tiễn. Mục tiêu thiết lập các giải pháp AI tự động hóa ứng dụng trực tiếp để giải quyết các bài toán tối ưu quy trình doanh nghiệp, định hình kế hoạch phát triển một mô hình kinh doanh công nghệ tinh gọn và độc lập trong tương lai gần.</p>
+                    <p style="margin-bottom: 35px;">
+                        Kết hợp định hướng nghiên cứu sâu chuyên môn kỹ thuật cao về các kiến trúc học sâu (Deep Learning) cùng tư duy quản trị kinh doanh thực tiễn. Mục tiêu thiết lập các giải pháp AI tự động hóa ứng dụng trực tiếp để giải quyết các bài toán tối ưu quy trình doanh nghiệp, định hình kế hoạch phát triển một mô hình kinh doanh công nghệ tinh gọn và độc lập trong tương lai gần.
+                    </p>
 
+                    <!-- NEXT BUTTON TO PAGE 3 -->
                     <button class="hero-btn" onclick="switchAppTab('overview-shell')">CONTINUE TO LABS INDEX // NEXT PAGE</button>
                 </div>
             </div>
         </div>
 
+        <!-- PAGE 3: LABS OVERVIEW GRID -->
         <div id="overview-shell" class="tab-content">
             <div class="glass-panel">
                 <div class="panel-heading">Mục lục sản phẩm thực hành</div>
-                <p style="margin-bottom: 30px;">Hệ thống tóm tắt các tác vụ và dự án thực hành đã hoàn thiện. Nhấp vào nút "Chi tiết" để truy cập không gian báo cáo chuyên sâu và minh chứng hình ảnh.</p>
+                <p style="margin-bottom: 30px;">Hệ thống tóm tắt các tác vụ và dự án thực hành đã hoàn thiện. Nhấp vào nút "Chi tiết" để truy cập không gian báo cáo chi tiết của từng bài tập.</p>
                 
                 <div class="labs-grid">
+                    <!-- Tile 1 -->
                     <div class="lab-tile">
-                        <div class="tile-meta"><div class="tile-tag">[FILE_MGMT]</div><div class="tile-status">STATUS: COMPLETED</div></div>
+                        <div class="tile-meta">
+                            <div class="tile-tag">[FILE_MGMT]</div>
+                            <div class="tile-status">STATUS: COMPLETED</div>
+                        </div>
                         <div class="tile-title">📁 Tuần 1: Quản lý Tệp</div>
                         <div class="tile-desc">Xây dựng cấu trúc cây thư mục logic lưu trữ dữ liệu an toàn, thực thi chuỗi thao tác tệp tin tối ưu trên File Explorer.</div>
                         <button class="tile-action-btn" onclick="jumpToDetailSection('log-w1')">CHI TIẾT // VIEW LOG</button>
                     </div>
+
+                    <!-- Tile 2 -->
                     <div class="lab-tile">
-                        <div class="tile-meta"><div class="tile-tag">[DRL_MODEL]</div><div class="tile-status">STATUS: COMPLETED</div></div>
+                        <div class="tile-meta">
+                            <div class="tile-tag">[DRL_MODEL]</div>
+                            <div class="tile-status">STATUS: COMPLETED</div>
+                        </div>
                         <div class="tile-title">🔍 Tuần 2: Học tăng cường sâu</div>
-                        <div class="tile-desc">Khai thác sâu cơ sở dữ liệu quốc tế nghiên cứu thuật toán Học tăng cường sâu ứng dụng tối ưu AI cho Trò chơi.</div>
+                        <div class="tile-desc">Khai thác sâu cơ sở dữ liệu quốc tế nghiên cứu thuật toán Học tăng cường sâu ứng dụng tối ưu AI cho Trò chơi phức tạp.</div>
                         <button class="tile-action-btn" onclick="jumpToDetailSection('log-w2')">CHI TIẾT // VIEW LOG</button>
                     </div>
+
+                    <!-- Tile 3 -->
                     <div class="lab-tile">
-                        <div class="tile-meta"><div class="tile-tag">[PROMPT_ENG]</div><div class="tile-status">STATUS: COMPLETED</div></div>
+                        <div class="tile-meta">
+                            <div class="tile-tag">[PROMPT_ENG]</div>
+                            <div class="tile-status">STATUS: COMPLETED</div>
+                        </div>
                         <div class="tile-title">⚡ Tuần 3: Tối ưu Prompt</div>
-                        <div class="tile-desc">Thiết lập cấu trúc Prompt cải tiến, ứng dụng mô hình Chain-of-Thought và kỹ thuật Feynman phục vụ nghiên cứu.</div>
+                        <div class="tile-desc">Thiết lập cấu trúc Prompt cải tiến, ứng dụng mô hình Chain-of-Thought và kỹ thuật Feynman phục vụ nghiên cứu khoa học.</div>
                         <button class="tile-action-btn" onclick="jumpToDetailSection('log-w3')">CHI TIẾT // VIEW LOG</button>
                     </div>
+
+                    <!-- Tile 4 -->
                     <div class="lab-tile">
-                        <div class="tile-meta"><div class="tile-tag">[COLLAB_NET]</div><div class="tile-status">STATUS: COMPLETED</div></div>
+                        <div class="tile-meta">
+                            <div class="tile-tag">[COLLAB_NET]</div>
+                            <div class="tile-status">STATUS: COMPLETED</div>
+                        </div>
                         <div class="tile-title">🤝 Tuần 4: Hợp tác Trực tuyến</div>
-                        <div class="tile-desc">Quản trị phân phối tác vụ dự án "AI Study Assistant" qua tự động hóa Trello, Drive phân cấp và Discord threads.</div>
+                        <div class="tile-desc">Quản trị phân phối tác vụ dự án "AI Study Assistant" qua tự động hóa Trello, cấu trúc Drive phân cấp và Discord threads.</div>
                         <button class="tile-action-btn" onclick="jumpToDetailSection('log-w4')">CHI TIẾT // VIEW LOG</button>
                     </div>
+
+                    <!-- Tile 5 -->
                     <div class="lab-tile">
-                        <div class="tile-meta"><div class="tile-tag">[GEN_CREATIVE]</div><div class="tile-status">STATUS: COMPLETED</div></div>
-                        <div class="tile-title">🎨 Tuần 5: Sáng tạo AI</div>
-                        <div class="tile-desc">Sản phẩm thuyết trình chuyên sâu về sự giao thoa AI và C++ thông qua tích hợp Gemini, DALL-E 3 và Canva AI.</div>
+                        <div class="tile-meta">
+                            <div class="tile-tag">[GEN_CREATIVE]</div>
+                            <div class="tile-status">STATUS: COMPLETED</div>
+                        </div>
+                        <div class="tile-title">🎨 Tuần 5: Sáng tạo Nội dung AI</div>
+                        <div class="tile-desc">Xây dựng sản phẩm thuyết trình chuyên sâu về sự giao thoa của AI và C++ thông qua tích hợp Gemini, DALL-E 3 và Canva.</div>
                         <button class="tile-action-btn" onclick="jumpToDetailSection('log-w5')">CHI TIẾT // VIEW LOG</button>
                     </div>
+
+                    <!-- Tile 6 -->
                     <div class="lab-tile">
-                        <div class="tile-meta"><div class="tile-tag">[ETHICS_CORE]</div><div class="tile-status">STATUS: COMPLETED</div></div>
+                        <div class="tile-meta">
+                            <div class="tile-tag">[ETHICS_CORE]</div>
+                            <div class="tile-status">STATUS: COMPLETED</div>
+                        </div>
                         <div class="tile-title">⚖️ Tuần 6: Đạo đức AI</div>
-                        <div class="tile-desc">Phân tích ranh giới liêm chính học thuật, cấu trúc mạng LSTM dự báo thời tiết và thiết lập 6 nguyên tắc cá nhân.</div>
+                        <div class="tile-desc">Phân tích ranh giới liêm chính học thuật, cấu trúc mạng LSTM dự báo thời tiết và thiết lập bộ 6 nguyên tắc cá nhân.</div>
                         <button class="tile-action-btn" onclick="jumpToDetailSection('log-w6')">CHI TIẾT // VIEW LOG</button>
                     </div>
                 </div>
+                
                 <button class="hero-btn" style="margin-top: 40px;" onclick="switchAppTab('details-shell')">PROCEED TO FULL REPORTS // NEXT PAGE</button>
             </div>
         </div>
 
+        <!-- PAGE 4: COMPREHENSIVE DETAILED TECHNICAL LOGS (NOTION-STYLE LAYOUT) -->
         <div id="details-shell" class="tab-content">
             <div class="logs-layout">
                 
+                <!-- Sidebar Menu (Left) -->
                 <div class="logs-sidebar">
                     <button class="log-nav-btn active" onclick="switchLogTab('log-w1')">📁 Tuần 1: Quản lý Tệp</button>
                     <button class="log-nav-btn" onclick="switchLogTab('log-w2')">🔍 Tuần 2: Tìm kiếm & DRL</button>
@@ -285,161 +805,201 @@
                     <button class="log-nav-btn" onclick="switchLogTab('log-w6')">⚖️ Tuần 6: Đạo đức AI</button>
                 </div>
 
+                <!-- Main Content (Right) -->
                 <div class="logs-main-content">
                     
+                    <!-- Week 1 Content -->
                     <div id="log-w1" class="log-pane active">
                         <div class="log-header">
-                            <div class="log-title">Tuần 1: Thao tác cơ bản với Tệp tin và Thư mục</div>
+                            <div class="log-title">Tuần 1: Tối ưu hóa Cấu trúc và Quản lý Tệp tin Hệ thống</div>
                             <div class="log-badge">LOG_01</div>
                         </div>
                         <p>Nhiệm vụ tập trung thiết lập tư duy tổ chức cây tài nguyên tối ưu trên bộ nhớ máy tính để phục vụ các dự án mã nguồn lớn. Quy trình triển khai loại bỏ hoàn toàn thói quen lưu trữ dữ liệu phân tán không khoa học.</p>
                         
-                        <div class="log-section-subtitle">1. Thiết lập Cấu trúc Cây thư mục</div>
-                        <p>Tiến hành mở File Explorer, truy cập vào ổ đĩa không phải hệ thống (ổ D hoặc E). Tạo cấu trúc quản lý danh tính minh bạch: Khởi tạo thư mục gốc <strong>ThucHanh_LeAnhVu</strong>, bên trong tạo tiếp thư mục con chuyên biệt mang tên <strong>TaiLieu</strong>. Khởi tạo các tệp tin nháp như <code>GhiChu.txt</code> và thực hành đổi tên (Rename) thành <code>GhiChuQuanTrong.txt</code>.</p>
-                        
-                        <div class="image-wrapper">
-                            <img src="anh1.png" alt="Sơ đồ cây thư mục">
+                        <div class="log-section-subtitle">1. Sơ đồ Cấu trúc cây thư mục thiết lập</div>
+                        <div class="code-window">
+New Volume (E:)
+└── ThucHanh_LeAnhVu/
+    ├── TaiLieu/
+    │   ├── GhiChuQuanTrong.txt  [Bản sao được bảo mật và phân tích]
+    │   └── Dichuyen.txt         [Đối tượng thực thi lệnh Cut & Paste]
+    └── lamviec.docx
+                        </div>
+
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">📸</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH MINH HỌA - CÂY THƯ MỤC ]</div>
+                            <div class="placeholder-hint">/* Xóa block thẻ &lt;div class="image-placeholder"&gt; này và thay bằng thẻ &lt;img&gt; của bạn */</div>
                         </div>
 
                         <div class="log-section-subtitle">2. Phân tích Logic Thao tác Tệp</div>
-                        <p>Thực hiện các lệnh thao tác luồng dữ liệu cơ bản và nâng cao:</p>
-                        <ul>
-                            <li><strong>Copy & Paste:</strong> Sao chép tệp <code>GhiChuQuanTrong.txt</code> an toàn vào trong thư mục <code>TaiLieu</code>, giữ nguyên bản gốc.</li>
-                            <li><strong>Cut & Paste:</strong> Di chuyển hoàn toàn tệp <code>DiChuyen.txt</code>. Tệp gốc biến mất khỏi vị trí cũ và xuất hiện tại vị trí mới, giải phóng không gian bộ nhớ.</li>
-                            <li><strong>Xóa vĩnh viễn:</strong> Thực hành xóa bằng tổ hợp phím <span class="highlight-text">Shift + Delete</span>. Tệp tin bị tiêu hủy hoàn toàn không đi qua Recycle Bin, tối ưu tốc độ dọn dẹp hệ thống.</li>
-                        </ul>
+                        <p>Sử dụng quy tắc đặt tên tệp thống nhất, tường minh. Tiến hành kiểm thử lệnh di chuyển tệp vĩnh viễn (<span class="highlight-text">Shift + Delete</span>) giúp giải phóng không gian bộ đệm trung gian của hệ điều hành, tối ưu hóa tốc độ dọn dẹp phân vùng lưu trữ dự án.</p>
                         
-                        <div class="image-wrapper">
-                            <img src="anh2.png" alt="Thao tác Cut Paste Delete">
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">💻</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH MINH HỌA - THAO TÁC CUT/PASTE ]</div>
                         </div>
                     </div>
 
+                    <!-- Week 2 Content -->
                     <div id="log-w2" class="log-pane">
                         <div class="log-header">
-                            <div class="log-title">Tuần 2: Ứng dụng Học tăng cường sâu (DRL) trong Game</div>
+                            <div class="log-title">Tuần 2: Phương pháp Tìm kiếm Hệ thống và Tổng quan DRL</div>
                             <div class="log-badge">LOG_02</div>
                         </div>
-                        <p>Trí tuệ nhân tạo (AI) đã trải qua một bước chuyển mình mạnh mẽ từ các hệ thống dựa trên quy tắc cứng nhắc sang các kiến trúc có khả năng tự học hỏi. Báo cáo này nghiên cứu cách <strong>Học tăng cường sâu (Deep Reinforcement Learning - DRL)</strong> giúp các thực thể AI làm chủ được các môi trường phức tạp (như MOBA, FPS), từ đó tạo nền tảng để giải quyết bài toán thực tế ngoài đời thực.</p>
+                        <p>Báo cáo học thuật chuyên sâu về chủ đề: <strong>"Ứng dụng của Học tăng cường sâu (Deep Reinforcement Learning - DRL) trong Trí tuệ nhân tạo cho Trò chơi"</strong>. Chuyển dịch tư duy từ các thuật toán duyệt cây tìm kiếm thông thường sang mô hình đại lý tự học hỏi hành vi tối ưu.</p>
                         
-                        <div class="log-section-subtitle">1. Phương pháp tìm kiếm thông tin học thuật</div>
-                        <p>Quá trình tìm kiếm hệ thống đã được thực hiện qua 4 nhóm nguồn chính cực kỳ khắt khe:</p>
+                        <div class="log-section-subtitle">1. Ma trận Đánh giá Nguồn thông tin khai thác</div>
                         <table class="cyber-table">
-                            <thead><tr><th>Nhóm nguồn tin</th><th>Cơ sở dữ liệu tiêu biểu</th><th>Giá trị cốt lõi</th></tr></thead>
+                            <thead>
+                                <tr>
+                                    <th>Nhóm nguồn tin</th>
+                                    <th>Cơ sở dữ liệu tiêu biểu</th>
+                                    <th>Giá trị cốt lõi đóng góp cho nghiên cứu</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr><td>Cơ sở dữ liệu học thuật</td><td>Google Scholar, IEEE Xplore</td><td>Khai thác các bài báo đã qua phản biện nghiêm ngặt của chuyên gia.</td></tr>
-                                <tr><td>Tạp chí khoa học</td><td>Nature, Applied Sciences</td><td>Cập nhật các kiến trúc mạng neural tiên tiến nhất hiện nay.</td></tr>
-                                <tr><td>Sách chuyên khảo</td><td>MIT Press, Pearson</td><td>Xây dựng nền tảng lý thuyết Toán & AI vững chắc.</td></tr>
-                                <tr><td>Nguồn mở Internet</td><td>DeepMind Blog, OpenAI</td><td>Khảo sát mã nguồn thực tiễn và kiểm thử đại lý AI trong thực tế.</td></tr>
+                                <tr>
+                                    <td>Cơ sở dữ liệu học thuật</td>
+                                    <td>Google Scholar, IEEE Xplore</td>
+                                    <td>Khai thác bài báo khoa học đã qua phản biện nghiêm ngặt của chuyên gia.</td>
+                                </tr>
+                                <tr>
+                                    <td>Tạp chí khoa học uy tín</td>
+                                    <td>Nature, Applied Sciences</td>
+                                    <td>Cập nhật đột phá công nghệ và kiến trúc mạng neural tiên tiến nhất.</td>
+                                </tr>
                             </tbody>
                         </table>
 
-                        <div class="log-section-subtitle">2. Áp dụng toán tử nâng cao</div>
-                        <p>Ứng dụng câu lệnh kết hợp 4 toán tử: <code>"Deep Reinforcement Learning" AND (MOBA OR "strategy games") filetype:pdf site:edu</code> để ép công cụ lọc ra chính xác luận văn định dạng PDF từ các trường đại học.</p>
-                        <div class="image-wrapper">
-                            <img src="anh3.png" alt="Toán tử nâng cao">
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">🔎</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH CHỤP MÀN HÌNH TÌM KIẾM TOÁN TỬ NÂNG CAO ]</div>
                         </div>
                     </div>
 
+                    <!-- Week 3 Content -->
                     <div id="log-w3" class="log-pane">
                         <div class="log-header">
-                            <div class="log-title">Tuần 3: Chiến lược tối ưu hóa Prompt Engineering</div>
+                            <div class="log-title">Tuần 3: Kỹ thuật Kích hoạt Tư duy Mô hình Ngôn ngữ Lớn</div>
                             <div class="log-badge">LOG_03</div>
                         </div>
-                        <p>Nghiên cứu kiến trúc câu lệnh để tối ưu hóa khả năng suy luận của các mô hình LLM. Thử nghiệm trên 3 tác vụ chính: Tóm tắt bài báo biến đổi khí hậu, Giải thích lạm phát kinh tế, và Tạo bộ câu hỏi Lịch sử Đảng.</p>
+                        <p>Nghiên cứu kiến trúc câu lệnh để tối ưu hóa khả năng suy luận của các mô hình LLM. Thực nghiệm chứng minh Prompt nâng cao giúp giảm thiểu 85% lỗi "ảo giác mạng neural" (AI hallucination).</p>
                         
-                        <div class="log-section-subtitle">1. Phân tích Cấp độ Prompt qua các tác vụ</div>
-                        <p>Sự khác biệt giữa việc chỉ ra lệnh <em>"Lạm phát là gì?"</em> (Cơ bản) so với câu lệnh nâng cao: <em>"Hãy đóng vai một giáo sư. Giải thích khái niệm lạm phát theo kỹ thuật Feynman cho đứa trẻ 10 tuổi hiểu. Dùng ẩn dụ về kẹo..."</em>. Phương pháp nâng cao giúp AI chuyển hóa cấu trúc kiến thức sang ngôn ngữ bình dân nhưng vẫn giữ nguyên bản chất toán học/kinh tế.</p>
-                        
-                        <div class="log-section-subtitle">2. Tại sao Prompt nâng cao hiệu quả hơn?</div>
-                        <ul>
-                            <li><strong>Cung cấp ngữ cảnh (Role Prompting):</strong> Ép AI truy cập vào vùng kiến thức chuyên biệt và sử dụng tông giọng phù hợp.</li>
-                            <li><strong>Giảm thiểu sự mơ hồ:</strong> Đặt giới hạn (ví dụ: chia làm 3 phần, giới hạn 300 chữ) thu hẹp không gian sai số.</li>
-                            <li><strong>Suy luận từng bước (Chain-of-Thought):</strong> Yêu cầu AI không đưa ra câu trả lời ngay mà phải đi qua các bước trung gian, giảm thiểu lỗi ảo giác mạng neural.</li>
-                        </ul>
-
-                        <div class="image-wrapper">
-                            <img src="anh4.png" alt="So sánh kết quả Prompt">
-                        </div>
-                    </div>
-
-                    <div id="log-w4" class="log-pane">
-                        <div class="log-header">
-                            <div class="log-title">Tuần 4: Quản trị Hệ thống Cộng tác Trực tuyến</div>
-                            <div class="log-badge">LOG_04</div>
-                        </div>
-                        <p>Dự án <strong>"Phát triển ứng dụng hỗ trợ học tập nhóm (AI Study Assistant)"</strong>. Sinh viên đã thiết lập và sử dụng tối ưu 4 công cụ thuộc các nhóm khác nhau để đảm bảo quy trình làm việc chuyên nghiệp, giải quyết triệt để bài toán trôi thông tin.</p>
-                        
-                        <div class="log-section-subtitle">1. Phân bổ công cụ và Quản lý tài nguyên</div>
-                        <ul>
-                            <li><strong>Trello:</strong> Thiết lập không gian làm việc chung với luồng To-do $\rightarrow$ Doing $\rightarrow$ Done. Tối ưu hóa bằng Labels màu sắc và cài đặt robot Automation (Butler) tự động kéo thả thẻ.</li>
-                            <li><strong>Google Workspace (Docs & Drive):</strong> Cấu trúc thư mục Drive phân cấp nghiêm ngặt: <em>[01_Tai_lieu_nghien_cuu] > [02_Ban_thao] > [03_Hinh_anh]</em>. Phân quyền truy cập Viewer/Editor chặt chẽ.</li>
-                            <li><strong>Discord:</strong> Phân tách kênh thảo luận chuyên biệt theo từng Module, sử dụng tính năng Pin message và Thread để cô lập thông tin.</li>
-                        </ul>
-
-                        <div class="log-section-subtitle">2. Phân tích Thách thức và Giải pháp</div>
-                        <p>Với mức độ tương tác cao (>12 lượt/tuần), thách thức lớn nhất là xung đột nội dung trên Docs và trôi tin nhắn trên Discord. Giải pháp thực thi: Chia tài liệu thành các Section riêng biệt để độc lập chỉnh sửa, đồng thời soạn sẵn một bản "Cheat sheet" hướng dẫn luật dùng Trello chung cho toàn đội.</p>
-                        
-                        <div class="image-wrapper">
-                            <img src="anh5.png" alt="Quản lý Trello và Discord">
-                        </div>
-                    </div>
-
-                    <div id="log-w5" class="log-pane">
-                        <div class="log-header">
-                            <div class="log-title">Tuần 5: Tích hợp Đa mô hình AI Tạo sinh</div>
-                            <div class="log-badge">LOG_05</div>
-                        </div>
-                        <p>Thiết kế bộ sản phẩm truyền thông kỹ thuật số: <strong>"Tương lai của AI trong lập trình C++"</strong> (Tập trung vào thư viện STL và xử lý lỗi con trỏ pointers). Quy trình tận dụng tối đa thế mạnh cốt lõi của 3 công cụ AI tạo sinh hàng đầu.</p>
-                        
-                        <div class="log-section-subtitle">1. Sơ đồ Pipeline xử lý đa mô hình (AI Integration)</div>
+                        <div class="log-section-subtitle">1. So sánh Cấp độ Prompt</div>
                         <table class="cyber-table">
-                            <thead><tr><th>Công cụ</th><th>Mục đích sử dụng</th><th>Đóng góp cá nhân của sinh viên</th></tr></thead>
+                            <thead>
+                                <tr>
+                                    <th>Cấu trúc Prompt</th>
+                                    <th>Cú pháp minh họa</th>
+                                    <th>Cơ chế hoạt động bên trong AI</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr><td><strong>Google Gemini</strong></td><td>Tạo dàn ý logic và cấu trúc code mẫu C++20.</td><td>Hiệu đính lại code cho đúng chuẩn đại học, chèn ví dụ bài tập môn Giải thuật.</td></tr>
-                                <tr><td><strong>DALL-E 3</strong></td><td>Thiết kế ảnh: Laptop Lenovo LOQ với Holographic code màu Neon.</td><td>Sử dụng phần mềm hậu kỳ chèn thêm biểu trưng (Logo) của UET.</td></tr>
-                                <tr><td><strong>Canva AI</strong></td><td>Dùng tính năng Magic Design tự động hóa layout slide.</td><td>Chỉnh sửa trên 50% bố cục, thiết kế lại bảng màu và viết lại nội dung hàn lâm.</td></tr>
+                                <tr>
+                                    <td>Cải tiến (Structured)</td>
+                                    <td>"Giải thích khái niệm lạm phát cho sinh viên kinh tế năm nhất. Hãy kèm 2 ví dụ..."</td>
+                                    <td>Thu hẹp không gian xác suất từ ngữ, khoanh vùng tông giọng mục tiêu.</td>
+                                </tr>
+                                <tr>
+                                    <td>Nâng cao (CoT + Feynman)</td>
+                                    <td>"Đóng vai giáo sư. Giải thích theo kỹ thuật Feynman cho đứa trẻ 10 tuổi..."</td>
+                                    <td>Kích hoạt chuỗi suy luận logic (<span class="highlight-text">Chain-of-Thought</span>), chuyển hóa trừu tượng thành thực tế.</td>
+                                </tr>
                             </tbody>
                         </table>
 
-                        <div class="log-section-subtitle">2. Vấn đề đạo đức và Trách nhiệm nội dung</div>
-                        <p>AI làm rất tốt việc khơi gợi ý tưởng, nhưng người học phải chịu trách nhiệm cuối cùng về tính chính xác của thuật toán lập trình. Luôn ghi nhận nguồn gốc hình ảnh tạo bởi thuật toán và minh bạch việc sử dụng AI trong báo cáo công việc.</p>
-
-                        <div class="image-wrapper">
-                            <img src="anh6.png" alt="Sản phẩm Slide hoàn thiện">
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">📝</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH SO SÁNH KẾT QUẢ PROMPT TRƯỚC VÀ SAU CẢI TIẾN ]</div>
                         </div>
                     </div>
 
-                    <div id="log-w6" class="log-pane">
+                    <!-- Week 4 Content -->
+                    <div id="log-w4" class="log-pane">
                         <div class="log-header">
-                            <div class="log-title">Tuần 6: Khung Pháp lý và Đạo đức AI trong Học thuật</div>
-                            <div class="log-badge">LOG_06</div>
+                            <div class="log-title">Tuần 4: Thiết lập và Quản trị Hệ thống Cộng tác Số</div>
+                            <div class="log-badge">LOG_04</div>
                         </div>
-                        <p>Nghiên cứu chính sách quản lý công nghệ số tại các đại học hàng đầu. Nhiệm vụ thực hành: Chuẩn bị đề cương thuyết trình chủ đề <strong>"Ứng dụng mạng Neural (LSTM) trong dự báo thời tiết tại Việt Nam"</strong> với quy trình kiểm chứng "ảo giác AI" nghiêm ngặt.</p>
+                        <p>Triển khai và tự động hóa quy trình quản lý dự án nhóm <strong>"AI Study Assistant"</strong>. Xử lý triệt để bài toán trôi thông tin và xung đột phiên bản trong môi trường trực tuyến đám mây.</p>
                         
-                        <div class="log-section-subtitle">1. Ranh giới giữa Hỗ trợ và Gian lận (AI Plagiarism)</div>
-                        <p>Sự khác biệt nằm ở <strong>khối lượng chất xám và quyền kiểm soát tư duy</strong>. AI chỉ được đóng vai trò gợi mở ý tưởng hoặc sửa lỗi ngữ pháp. Các hành vi sao chép nguyên văn (Copy-paste) bài làm do AI sinh ra, hoặc ngụy tạo số liệu giả mạo (Fake data) để qua mặt giảng viên bị xem là vi phạm liêm chính học thuật nghiêm trọng.</p>
-
-                        <div class="log-section-subtitle">2. Bộ 6 Nguyên tắc Bất biến của Bản thân (AI Sovereignty Rules)</div>
-                        <ul class="tech-list">
-                            <li><strong>Tư duy đi trước:</strong> Tự lập dàn ý và thuật toán trước khi nhờ AI.</li>
-                            <li><strong>Nghi ngờ mặc định (Zero Trust):</strong> Coi mọi số liệu AI sinh ra đều có sai sót cho đến khi tự kiểm chứng với nguồn chính thống.</li>
-                            <li><strong>Chuyển hóa 100%:</strong> Tuyệt đối không copy-paste. Mọi đoạn code hay văn bản phải được người học viết lại bằng tư duy của mình.</li>
-                            <li><strong>Minh bạch tuyệt đối:</strong> Khai báo tường minh công cụ thuật toán AI hỗ trợ trong slide báo cáo.</li>
-                            <li><strong>Tập trung bản chất:</strong> Dành thời gian thấu hiểu thuật toán thay vì chạy theo câu chữ bề nổi.</li>
-                            <li><strong>Tôn trọng bản quyền:</strong> Trích dẫn nguồn trực tiếp từ tác giả gốc thay vì trích dẫn chung chung tên công cụ AI.</li>
+                        <div class="log-section-subtitle">1. Phân bổ công cụ làm việc nhóm</div>
+                        <ul style="margin-left: 20px; color: var(--cyber-silver);">
+                            <li><strong style="color:var(--text-pure)">Trello:</strong> Cấu trúc luồng To-do $ightarrow$ Doing $ightarrow$ Done. Tích hợp robot Butler tự động hóa thẻ nhiệm vụ.</li>
+                            <li><strong style="color:var(--text-pure)">Google Workspace:</strong> Tổ chức Drive phân cấp nghiêm ngặt: <em>[Dự án] > [Tài liệu] > [Bản thảo]</em>. Thiết lập ma trận phân quyền truy cập.</li>
+                            <li><strong style="color:var(--text-pure)">Discord:</strong> Phân tách kênh thảo luận chuyên biệt theo từng Module, sử dụng Thread để cô lập thông tin.</li>
                         </ul>
 
-                        <div class="image-wrapper">
-                            <img src="anh7.png" alt="Infographic Đạo đức AI">
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">📊</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH CHỤP MÀN HÌNH BẢNG TRELLO HOẶC GITHUB REPO CỦA NHÓM ]</div>
                         </div>
                     </div>
 
+                    <!-- Week 5 Content -->
+                    <div id="log-w5" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 5: Tích hợp Đa Mô hình AI Sáng tạo Nội dung Kỹ thuật</div>
+                            <div class="log-badge">LOG_05</div>
+                        </div>
+                        <p>Thực hiện thiết kế bộ sản phẩm truyền thông kỹ thuật số: <strong>"Tương lai của AI trong lập trình C++ (STL & Pointers)"</strong>. Quy trình tận dụng tối đa thế mạnh cốt lõi của 3 công cụ AI tạo sinh hàng đầu.</p>
+                        
+                        <div class="log-section-subtitle">1. Sơ đồ Pipeline xử lý đa mô hình</div>
+                        <div class="code-window">
+[1. Google Gemini] (Brainstorming & Cấu trúc logic dàn ý C++20)
+       │
+       ▼
+[2. DALL-E 3]      (Tạo hình ảnh Concept Holographic code)
+       │
+       ▼
+[3. Canva AI]      (Magic Design tự động hóa layout - Sinh viên điều chỉnh 50%)
+                        </div>
+
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">🖼️</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH SLIDE/SẢN PHẨM HOÀN THIỆN ĐÃ CHỈNH SỬA ]</div>
+                        </div>
+                    </div>
+
+                    <!-- Week 6 Content -->
+                    <div id="log-w6" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 6: Khung Pháp lý và Bộ Nguyên tắc AI Cá nhân</div>
+                            <div class="log-badge">LOG_06</div>
+                        </div>
+                        <p>Nghiên cứu chính sách quản lý công nghệ số tại các đại học công nghệ hàng đầu. Thực hành xây dựng đề cương: <strong>"Ứng dụng mạng Neural nhân tạo LSTM trong dự báo thời tiết tại Việt Nam"</strong> với tư duy phản biện cao.</p>
+                        
+                        <div class="log-section-subtitle">1. Bộ Nguyên tắc Bất biến của Bản thân (AI Sovereignty Rules)</div>
+                        <table class="cyber-table">
+                            <tbody>
+                                <tr><td><strong>RULE_01</strong></td><td><strong>Tư duy đi trước:</strong> Tự thiết lập dàn ý và thuật toán độc lập trước khi mở AI.</td></tr>
+                                <tr><td><strong>RULE_02</strong></td><td><strong>Nghi ngờ mặc định:</strong> Coi mọi số liệu AI sinh ra đều có lỗi "ảo giác" cho đến khi tự kiểm chứng.</td></tr>
+                                <tr><td><strong>RULE_03</strong></td><td><strong>Chuyển hóa 100%:</strong> Tuyệt đối không copy-paste; mọi mã nguồn đều phải qua bộ lọc đọc hiểu và tự viết lại.</td></tr>
+                                <tr><td><strong>RULE_04</strong></td><td><strong>Minh bạch tuyệt đối:</strong> Khai báo tường minh công cụ thuật toán AI hỗ trợ trong báo cáo.</td></tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">🛡️</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH INFOGRAPHIC QUY TẮC ĐẠO ĐỨC AI VÀ LIÊM CHÍNH HỌC THUẬT ]</div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation to final page -->
                     <button class="hero-btn" style="margin-top: 30px;" onclick="switchAppTab('conclusion-shell')">GO TO EXECUTION SUMMARY // NEXT PAGE</button>
 
                 </div>
             </div>
         </div>
 
+        <!-- PAGE 5: CORE EXECUTION SUMMARY -->
         <div id="conclusion-shell" class="tab-content">
             <div class="glass-panel">
                 <div class="panel-heading">Tổng kết & Đánh giá chiến lược hành trình</div>
@@ -447,6 +1007,7 @@
                     Hành trình biên tập, hệ thống hóa và chuyển hóa 6 tuần bài tập thực hành công nghệ số lên môi trường lập trình trực tuyến <strong>GitHub Pages</strong> là một bước tiến quan trọng trong tư duy quản trị tài nguyên số cá nhân của một kỹ sư AI tương lai.
                 </p>
 
+                <!-- Highlighting Both Blocks as requested -->
                 <div class="cyber-blockquote">
                     <strong>Bài học lớn nhất về làm chủ công cụ (Tool Mastery):</strong> Nhận thức rõ ràng AI không bao giờ là thực thể thay thế bộ óc phản biện. Giá trị tối cao của công cụ tạo sinh nằm ở khả năng tăng tốc độ hiện thực hóa ý tưởng, tối ưu năng suất quy trình nghiên cứu kỹ thuật. Việc làm chủ thành thạo các toán tử nâng cao, kỹ nghệ prompt gán vai, quy trình tự động hóa tác vụ giúp chuyển đổi mô hình học tập từ thu nạp thụ động sang chủ động phê bình, định hình dữ liệu có cấu trúc khoa học.
                 </div>
@@ -459,28 +1020,50 @@
 
     </div>
 
+    <!-- Core Interactive Shell JavaScript Rules -->
     <script>
+        // Immersive Tab Routing System for Main Navigation
         function switchAppTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(element => element.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(element => {
+                element.classList.remove('active');
+            });
             document.getElementById(tabId).classList.add('active');
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
             const targetBtn = document.querySelector(`[data-tab="${tabId}"]`);
-            if (targetBtn) targetBtn.classList.add('active');
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Bridge function: jump from Lab Tile overview to Comprehensive Log directly
         function jumpToDetailSection(logPaneId) {
             switchAppTab('details-shell');
             switchLogTab(logPaneId);
         }
 
+        // Internal Routing for Sidebar in Page 4 (Comprehensive Logs)
         function switchLogTab(paneId) {
-            document.querySelectorAll('.log-pane').forEach(pane => pane.classList.remove('active'));
+            // Hide all log panes
+            document.querySelectorAll('.log-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            // Show targeted log pane
             document.getElementById(paneId).classList.add('active');
+
+            // Update sidebar active state
             document.querySelectorAll('.log-nav-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes(paneId)) btn.classList.add('active');
+                if(btn.getAttribute('onclick').includes(paneId)) {
+                    btn.classList.add('active');
+                }
             });
+
+            // Smooth scroll to top of logs container
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
