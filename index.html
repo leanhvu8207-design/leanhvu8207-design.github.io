@@ -167,7 +167,30 @@
             color: var(--electric-blue);
         }
 
-        /* PAGE 1: HERO LANDING ACCENTS */
+        /* Hero Button */
+        .hero-btn {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(59, 130, 246, 0.15));
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 16px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            background: var(--neon-blue);
+            color: var(--bg-void);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* PAGE 1: HERO LANDING */
         .hero-viewport {
             height: 70vh;
             display: flex;
@@ -207,28 +230,6 @@
             max-width: 700px;
             line-height: 1.7;
             margin-bottom: 40px;
-        }
-
-        .hero-btn {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(59, 130, 246, 0.15));
-            border: 1px solid var(--neon-blue);
-            color: var(--neon-blue);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            padding: 16px 35px;
-            border-radius: 8px;
-            cursor: pointer;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-            display: inline-block;
-        }
-
-        .hero-btn:hover {
-            background: var(--neon-blue);
-            color: var(--bg-void);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-            transform: translateY(-2px);
         }
 
         /* PAGE 2: PROFILE GRID ARCHITECTURE */
@@ -367,6 +368,9 @@
             font-weight: 700;
             color: var(--text-pure);
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .tile-desc {
@@ -404,29 +408,91 @@
             text-shadow: 0 0 5px var(--neon-glow);
         }
 
-        /* PAGE 4: DETAILED LOG DEEP TEXTURE */
-        .week-log-block {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 45px;
-            margin-bottom: 45px;
+        /* PAGE 4: NOTION-LIKE SPLIT LAYOUT FOR REPORTS */
+        .logs-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
         }
 
-        .week-log-block:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
+        .logs-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            background: rgba(10, 17, 36, 0.8);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 20px 10px;
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.02);
+        }
+
+        .log-nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--cyber-silver);
+            text-align: left;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .log-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-pure);
+        }
+
+        .log-nav-btn.active {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--neon-blue);
+            border-left: 3px solid var(--neon-blue);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .logs-main-content {
+            flex-grow: 1;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 40px;
+            min-height: 600px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .log-pane {
+            display: none;
+            animation: fadeInShell 0.4s ease forwards;
+        }
+
+        .log-pane.active {
+            display: block;
         }
 
         .log-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .log-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-pure);
         }
@@ -438,15 +504,62 @@
             border: 1px solid var(--neon-blue);
             padding: 3px 12px;
             border-radius: 20px;
+            background: rgba(0, 240, 255, 0.05);
         }
 
         .log-section-subtitle {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--electric-blue);
-            margin: 20px 0 10px 0;
+            margin: 25px 0 15px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .log-section-subtitle::before {
+            content: '>';
+            color: var(--neon-blue);
+        }
+
+        /* Image Placeholder Block */
+        .image-placeholder {
+            width: 100%;
+            min-height: 250px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .image-placeholder:hover {
+            border-color: var(--neon-blue);
+            background: rgba(0, 240, 255, 0.02);
+        }
+        .placeholder-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        .placeholder-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--cyber-silver);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .placeholder-hint {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 10px;
         }
 
         /* Technical Data Layouts */
@@ -469,7 +582,6 @@
             margin: 15px 0;
             font-size: 0.9rem;
         }
-
         .cyber-table th {
             background: rgba(30, 41, 59, 0.6);
             font-family: 'Orbitron', sans-serif;
@@ -480,13 +592,11 @@
             padding: 12px 16px;
             border-bottom: 2px solid rgba(0, 240, 255, 0.2);
         }
-
         .cyber-table td {
             padding: 12px 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--cyber-silver);
         }
-
         .cyber-table tr:hover td {
             color: var(--text-pure);
             background: rgba(255, 255, 255, 0.02);
@@ -496,37 +606,27 @@
         p {
             font-size: 0.95rem;
             color: var(--cyber-silver);
-            line-height: 1.65;
+            line-height: 1.7;
+            margin-bottom: 15px;
         }
-
         strong {
             color: var(--text-pure);
         }
-
         .highlight-text {
             color: var(--neon-blue);
         }
 
-        /* Custom list style */
-        .tech-list {
-            list-style: none;
-            margin: 10px 0 10px 15px;
-        }
-
-        .tech-list li {
-            position: relative;
-            padding-left: 18px;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: var(--cyber-silver);
-        }
-
-        .tech-list li::before {
-            content: '▫';
-            position: absolute;
-            left: 0;
-            color: var(--neon-blue);
-            font-weight: bold;
+        /* Highlight box for Conclusion */
+        .cyber-blockquote {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--neon-blue);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-pure);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -583,7 +683,7 @@
                         </div>
                         <div class="meta-row">
                             <div class="meta-label">Sở thích & Phản xạ</div>
-                            <div class="meta-val">Bóng rổ, E-sports chiến thuật (Valorant, LoL)</div>
+                            <div class="meta-val">Bóng rổ, E-sports (Valorant, LoL)</div>
                         </div>
                     </div>
                 </div>
@@ -607,17 +707,17 @@
                         Kết hợp định hướng nghiên cứu sâu chuyên môn kỹ thuật cao về các kiến trúc học sâu (Deep Learning) cùng tư duy quản trị kinh doanh thực tiễn. Mục tiêu thiết lập các giải pháp AI tự động hóa ứng dụng trực tiếp để giải quyết các bài toán tối ưu quy trình doanh nghiệp, định hình kế hoạch phát triển một mô hình kinh doanh công nghệ tinh gọn và độc lập trong tương lai gần.
                     </p>
 
-                    <!-- ADDED NEXT BUTTON FOR NAVIGATION TO PAGE 3 -->
+                    <!-- NEXT BUTTON TO PAGE 3 -->
                     <button class="hero-btn" onclick="switchAppTab('overview-shell')">CONTINUE TO LABS INDEX // NEXT PAGE</button>
                 </div>
             </div>
         </div>
 
-        <!-- PAGE 3: LABS OVERVIEW GRID WITH DETAILED TRIGGERS -->
+        <!-- PAGE 3: LABS OVERVIEW GRID -->
         <div id="overview-shell" class="tab-content">
             <div class="glass-panel">
                 <div class="panel-heading">Mục lục sản phẩm thực hành</div>
-                <p style="margin-bottom: 30px;">Hệ thống tóm tắt các tác vụ và dự án thực hành đã hoàn thiện. Nhấp vào nút "Chi tiết" để truy cập trực tiếp log phân tích sâu.</p>
+                <p style="margin-bottom: 30px;">Hệ thống tóm tắt các tác vụ và dự án thực hành đã hoàn thiện. Nhấp vào nút "Chi tiết" để truy cập không gian báo cáo chi tiết của từng bài tập.</p>
                 
                 <div class="labs-grid">
                     <!-- Tile 1 -->
@@ -626,9 +726,9 @@
                             <div class="tile-tag">[FILE_MGMT]</div>
                             <div class="tile-status">STATUS: COMPLETED</div>
                         </div>
-                        <div class="tile-title">Tuần 1: Quản lý Tệp và Thư mục</div>
+                        <div class="tile-title">📁 Tuần 1: Quản lý Tệp</div>
                         <div class="tile-desc">Xây dựng cấu trúc cây thư mục logic lưu trữ dữ liệu an toàn, thực thi chuỗi thao tác tệp tin tối ưu trên File Explorer.</div>
-                        <button class="tile-action-btn" onclick="jumpToDetailSection('week1')">CHI TIẾT // VIEW LOG</button>
+                        <button class="tile-action-btn" onclick="jumpToDetailSection('log-w1')">CHI TIẾT // VIEW LOG</button>
                     </div>
 
                     <!-- Tile 2 -->
@@ -637,9 +737,9 @@
                             <div class="tile-tag">[DRL_MODEL]</div>
                             <div class="tile-status">STATUS: COMPLETED</div>
                         </div>
-                        <div class="tile-title">Tuần 2: Tìm kiếm Học thuật & DRL</div>
+                        <div class="tile-title">🔍 Tuần 2: Học tăng cường sâu</div>
                         <div class="tile-desc">Khai thác sâu cơ sở dữ liệu quốc tế nghiên cứu thuật toán Học tăng cường sâu ứng dụng tối ưu AI cho Trò chơi phức tạp.</div>
-                        <button class="tile-action-btn" onclick="jumpToDetailSection('week2')">CHI TIẾT // VIEW LOG</button>
+                        <button class="tile-action-btn" onclick="jumpToDetailSection('log-w2')">CHI TIẾT // VIEW LOG</button>
                     </div>
 
                     <!-- Tile 3 -->
@@ -648,9 +748,9 @@
                             <div class="tile-tag">[PROMPT_ENG]</div>
                             <div class="tile-status">STATUS: COMPLETED</div>
                         </div>
-                        <div class="tile-title">Tuần 3: Tối ưu Prompt Engineering</div>
+                        <div class="tile-title">⚡ Tuần 3: Tối ưu Prompt</div>
                         <div class="tile-desc">Thiết lập cấu trúc Prompt cải tiến, ứng dụng mô hình Chain-of-Thought và kỹ thuật Feynman phục vụ nghiên cứu khoa học.</div>
-                        <button class="tile-action-btn" onclick="jumpToDetailSection('week3')">CHI TIẾT // VIEW LOG</button>
+                        <button class="tile-action-btn" onclick="jumpToDetailSection('log-w3')">CHI TIẾT // VIEW LOG</button>
                     </div>
 
                     <!-- Tile 4 -->
@@ -659,9 +759,9 @@
                             <div class="tile-tag">[COLLAB_NET]</div>
                             <div class="tile-status">STATUS: COMPLETED</div>
                         </div>
-                        <div class="tile-title">Tuần 4: Hệ thống Hợp tác Trực tuyến</div>
+                        <div class="tile-title">🤝 Tuần 4: Hợp tác Trực tuyến</div>
                         <div class="tile-desc">Quản trị phân phối tác vụ dự án "AI Study Assistant" qua tự động hóa Trello, cấu trúc Drive phân cấp và Discord threads.</div>
-                        <button class="tile-action-btn" onclick="jumpToDetailSection('week4')">CHI TIẾT // VIEW LOG</button>
+                        <button class="tile-action-btn" onclick="jumpToDetailSection('log-w4')">CHI TIẾT // VIEW LOG</button>
                     </div>
 
                     <!-- Tile 5 -->
@@ -670,9 +770,9 @@
                             <div class="tile-tag">[GEN_CREATIVE]</div>
                             <div class="tile-status">STATUS: COMPLETED</div>
                         </div>
-                        <div class="tile-title">Tuần 5: Sáng tạo Nội dung AI Sinh</div>
-                        <div class="tile-desc">Xây dựng sản phẩm thuyết trình chuyên sâu về sự giao thoa của AI và C++ STL thông qua tích hợp đa mô hình Gemini, DALL-E 3 và Canva.</div>
-                        <button class="tile-action-btn" onclick="jumpToDetailSection('week5')">CHI TIẾT // VIEW LOG</button>
+                        <div class="tile-title">🎨 Tuần 5: Sáng tạo Nội dung AI</div>
+                        <div class="tile-desc">Xây dựng sản phẩm thuyết trình chuyên sâu về sự giao thoa của AI và C++ thông qua tích hợp Gemini, DALL-E 3 và Canva.</div>
+                        <button class="tile-action-btn" onclick="jumpToDetailSection('log-w5')">CHI TIẾT // VIEW LOG</button>
                     </div>
 
                     <!-- Tile 6 -->
@@ -681,226 +781,221 @@
                             <div class="tile-tag">[ETHICS_CORE]</div>
                             <div class="tile-status">STATUS: COMPLETED</div>
                         </div>
-                        <div class="tile-title">Tuần 6: AI có Trách nhiệm & Đạo đức</div>
+                        <div class="tile-title">⚖️ Tuần 6: Đạo đức AI</div>
                         <div class="tile-desc">Phân tích ranh giới liêm chính học thuật, cấu trúc mạng LSTM dự báo thời tiết và thiết lập bộ 6 nguyên tắc cá nhân.</div>
-                        <button class="tile-action-btn" onclick="jumpToDetailSection('week6')">CHI TIẾT // VIEW LOG</button>
+                        <button class="tile-action-btn" onclick="jumpToDetailSection('log-w6')">CHI TIẾT // VIEW LOG</button>
                     </div>
                 </div>
                 
-                <!-- NAVIGATION TO PAGE 4 -->
                 <button class="hero-btn" style="margin-top: 40px;" onclick="switchAppTab('details-shell')">PROCEED TO FULL REPORTS // NEXT PAGE</button>
             </div>
         </div>
 
-        <!-- PAGE 4: COMPREHENSIVE DETAILED TECHNICAL LOGS -->
+        <!-- PAGE 4: COMPREHENSIVE DETAILED TECHNICAL LOGS (NOTION-STYLE LAYOUT) -->
         <div id="details-shell" class="tab-content">
-            <div class="glass-panel">
-                <div class="panel-heading">Báo cáo phân tích chuyên sâu (6 Tuần)</div>
+            <div class="logs-layout">
                 
-                <!-- Week 1 Log -->
-                <div id="week1" class="week-log-block">
-                    <div class="log-header">
-                        <div class="log-title">Tuần 1 // Tối ưu hóa Cấu trúc và Quản lý Tệp tin Hệ thống</div>
-                        <div class="log-badge">LOG_01</div>
-                    </div>
-                    <p>
-                        Nhiệm vụ tập trung thiết lập tư duy tổ chức cây tài nguyên tối ưu trên bộ nhớ máy tính để phục vụ các dự án mã nguồn lớn. Quy trình triển khai loại bỏ hoàn toàn thói quen lưu trữ dữ liệu phân tán không khoa học.
-                    </p>
-                    <div class="log-section-subtitle">Sơ đồ Cấu trúc cây thư mục thiết lập:</div>
-                    <div class="code-window">
+                <!-- Sidebar Menu (Left) -->
+                <div class="logs-sidebar">
+                    <button class="log-nav-btn active" onclick="switchLogTab('log-w1')">📁 Tuần 1: Quản lý Tệp</button>
+                    <button class="log-nav-btn" onclick="switchLogTab('log-w2')">🔍 Tuần 2: Tìm kiếm & DRL</button>
+                    <button class="log-nav-btn" onclick="switchLogTab('log-w3')">⚡ Tuần 3: Prompt Engineering</button>
+                    <button class="log-nav-btn" onclick="switchLogTab('log-w4')">🤝 Tuần 4: Hợp tác Trực tuyến</button>
+                    <button class="log-nav-btn" onclick="switchLogTab('log-w5')">🎨 Tuần 5: Sáng tạo Nội dung AI</button>
+                    <button class="log-nav-btn" onclick="switchLogTab('log-w6')">⚖️ Tuần 6: Đạo đức AI</button>
+                </div>
+
+                <!-- Main Content (Right) -->
+                <div class="logs-main-content">
+                    
+                    <!-- Week 1 Content -->
+                    <div id="log-w1" class="log-pane active">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 1: Tối ưu hóa Cấu trúc và Quản lý Tệp tin Hệ thống</div>
+                            <div class="log-badge">LOG_01</div>
+                        </div>
+                        <p>Nhiệm vụ tập trung thiết lập tư duy tổ chức cây tài nguyên tối ưu trên bộ nhớ máy tính để phục vụ các dự án mã nguồn lớn. Quy trình triển khai loại bỏ hoàn toàn thói quen lưu trữ dữ liệu phân tán không khoa học.</p>
+                        
+                        <div class="log-section-subtitle">1. Sơ đồ Cấu trúc cây thư mục thiết lập</div>
+                        <div class="code-window">
 New Volume (E:)
 └── ThucHanh_LeAnhVu/
     ├── TaiLieu/
     │   ├── GhiChuQuanTrong.txt  [Bản sao được bảo mật và phân tích]
     │   └── Dichuyen.txt         [Đối tượng thực thi lệnh Cut & Paste]
     └── lamviec.docx
-                    </div>
-                    <div class="log-section-subtitle">Phân tích Logic Thao tác Tệp:</div>
-                    <p>
-                        Sử dụng quy tắc đặt tên tệp thống nhất, tường minh. Tiến hành kiểm thử lệnh di chuyển tệp vĩnh viễn (<span class="highlight-text">Shift + Delete</span>) giúp giải phóng không gian bộ đệm trung gian của hệ điều hành, tối ưu hóa tốc độ dọn dẹp phân vùng lưu trữ dự án.
-                    </p>
-                </div>
+                        </div>
 
-                <!-- Week 2 Log -->
-                <div id="week2" class="week-log-block">
-                    <div class="log-header">
-                        <div class="log-title">Tuần 2 // Phương pháp Tìm kiếm Hệ thống và Tổng quan Học tăng cường sâu</div>
-                        <div class="log-badge">LOG_02</div>
-                    </div>
-                    <p>
-                        Báo cáo học thuật chuyên sâu về chủ đề: <strong>"Ứng dụng của Học tăng cường sâu (Deep Reinforcement Learning - DRL) trong Trí tuệ nhân tạo cho Trò chơi"</strong>. Chuyển dịch tư duy từ các thuật toán duyệt cây tìm kiếm thông thường (như Minimax trong cờ Caro) sang mô hình đại lý tự học hỏi hành vi tối ưu thông qua cơ chế nhận thưởng từ môi trường.
-                    </p>
-                    <div class="log-section-subtitle">Ma trận Đánh giá Nguồn thông tin khai thác:</div>
-                    <table class="cyber-table">
-                        <thead>
-                            <tr>
-                                <th>Nhóm nguồn tin</th>
-                                <th>Cơ sở dữ liệu tiêu biểu</th>
-                                <th>Giá trị cốt lõi đóng góp cho nghiên cứu</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Cơ sở dữ liệu học thuật</td>
-                                <td>Google Scholar, IEEE Xplore</td>
-                                <td>Khai thác các bài báo khoa học đã qua phản biện nghiêm ngặt của các chuyên gia đầu ngành.</td>
-                            </tr>
-                            <tr>
-                                <td>Tạp chí khoa học uy tín</td>
-                                <td>Nature, Applied Sciences</td>
-                                <td>Cập nhật các đột phá công nghệ mới và các kiến trúc mạng neural tiên tiến nhất.</td>
-                            </tr>
-                            <tr>
-                                <td>Sách chuyên khảo</td>
-                                <td>MIT Press, Pearson</td>
-                                <td>Xây dựng nền tảng lý thuyết cốt lõi vững chắc về Học máy và Học tăng cường.</td>
-                            </tr>
-                            <tr>
-                                <td>Nguồn mở công nghệ</td>
-                                <td>DeepMind Blog, OpenAI Enterprise</td>
-                                <td>Khảo sát mã nguồn thực tiễn và các case-study kiểm thử đại lý AI thành công trong thực tế.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">📸</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH MINH HỌA - CÂY THƯ MỤC ]</div>
+                            <div class="placeholder-hint">/* Xóa block thẻ &lt;div class="image-placeholder"&gt; này và thay bằng thẻ &lt;img&gt; của bạn */</div>
+                        </div>
 
-                <!-- Week 3 Log -->
-                <div id="week3" class="week-log-block">
-                    <div class="log-header">
-                        <div class="log-title">Tuần 3 // Kỹ thuật Kích hoạt Tư duy Mô hình Ngôn ngữ Lớn (Prompt Engineering)</div>
-                        <div class="log-badge">LOG_03</div>
+                        <div class="log-section-subtitle">2. Phân tích Logic Thao tác Tệp</div>
+                        <p>Sử dụng quy tắc đặt tên tệp thống nhất, tường minh. Tiến hành kiểm thử lệnh di chuyển tệp vĩnh viễn (<span class="highlight-text">Shift + Delete</span>) giúp giải phóng không gian bộ đệm trung gian của hệ điều hành, tối ưu hóa tốc độ dọn dẹp phân vùng lưu trữ dự án.</p>
+                        
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">💻</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH MINH HỌA - THAO TÁC CUT/PASTE ]</div>
+                        </div>
                     </div>
-                    <p>
-                        Nghiên cứu kiến trúc câu lệnh để tối ưu hóa khả năng suy luận của các mô hình LLM. Thực nghiệm chứng minh Prompt nâng cao giúp giảm thiểu 85% lỗi "ảo giác mạng neural" (AI hallucination).
-                    </p>
-                    <div class="log-section-subtitle">Bảng so sánh Cấp độ Prompt & Cơ chế Hoạt động:</div>
-                    <table class="cyber-table">
-                        <thead>
-                            <tr>
-                                <th>Cấu trúc Prompt</th>
-                                <th>Cú pháp minh họa</th>
-                                <th>Cơ chế hoạt động bên trong mô hình AI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Cơ bản (Zero-shot)</td>
-                                <td>"Lạm phát là gì?"</td>
-                                <td>AI truy xuất dữ liệu phân tán tự do, kết quả có tính bộc phát giống định nghĩa từ điển thông thường.</td>
-                            </tr>
-                            <tr>
-                                <td>Cải tiến (Structured)</td>
-                                <td>"Giải thích khái niệm lạm phát cho sinh viên kinh tế năm nhất. Hãy kèm theo 2 ví dụ thực tế..."</td>
-                                <td>AI thu hẹp không gian phân phối xác suất từ ngữ, khoanh vùng tông giọng và đối tượng mục tiêu chính xác.</td>
-                            </tr>
-                            <tr>
-                                <td>Nâng cao (CoT + Feynman)</td>
-                                <td>"Hãy đóng vai một giáo sư xuất sắc. Giải thích lạm phát theo kỹ thuật Feynman cho đứa trẻ 10 tuổi hiểu..."</td>
-                                <td>Kích hoạt chuỗi suy luận logic từng bước (<span class="highlight-text">Chain-of-Thought</span>), buộc AI cấu trúc lại kiến trúc trừu tượng thành các phép ẩn dụ kẹo thực tế.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
-                <!-- Week 4 Log -->
-                <div id="week4" class="week-log-block">
-                    <div class="log-header">
-                        <div class="log-title">Tuần 4 // Thiết lập và Quản trị Hệ thống Cộng tác Số Enterprise</div>
-                        <div class="log-badge">LOG_04</div>
-                    </div>
-                    <p>
-                        Triển khai và tự động hóa quy trình quản lý dự án nhóm phát triển sản phẩm công nghệ ứng dụng mang tên <strong>"AI Study Assistant"</strong>. Quy trình xử lý triệt để bài toán trôi thông tin và xung đột phiên bản trong môi trường trực tuyến đám mây.
-                    </p>
-                    <div class="log-section-subtitle">Kiến trúc Luồng điều phối Tác vụ & Tài nguyên:</div>
-                    <ul class="tech-list">
-                        <li><strong>Trello (Quản trị tiến độ):</strong> Cấu trúc không gian làm việc số theo luồng chuẩn: To-do $
-ightarrow$ Doing $
-ightarrow$ Done. Tích hợp robot Butler tự động hóa gắn nhãn phân loại độ ưu tiên màu sắc và dịch chuyển thẻ nhiệm vụ tự động khi phát hiện cập nhật.</li>
-                        <li><strong>Google Workspace (Quản trị dữ liệu):</strong> Tổ chức cây thư mục Drive phân cấp nghiêm ngặt: <span class="highlight-text">[Dự án AI] > [01_Tai_lieu_nghien_cuu] > [02_Ban_thao_noi_dung]</span>. Thiết lập ma trận phân quyền truy cập chi tiết (Viewer/Editor) cho từng thành viên.</li>
-                        <li><strong>Discord (Kênh liên lạc thời gian thực):</strong> Phân tách kênh thảo luận chuyên biệt theo từng Module nhiệm vụ, sử dụng tính năng ghim (Pin message) và chia luồng (Thread) để cô lập thông tin, loại bỏ tình trạng nhiễu loạn hội thoại.</li>
-                    </ul>
-                </div>
+                    <!-- Week 2 Content -->
+                    <div id="log-w2" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 2: Phương pháp Tìm kiếm Hệ thống và Tổng quan DRL</div>
+                            <div class="log-badge">LOG_02</div>
+                        </div>
+                        <p>Báo cáo học thuật chuyên sâu về chủ đề: <strong>"Ứng dụng của Học tăng cường sâu (Deep Reinforcement Learning - DRL) trong Trí tuệ nhân tạo cho Trò chơi"</strong>. Chuyển dịch tư duy từ các thuật toán duyệt cây tìm kiếm thông thường sang mô hình đại lý tự học hỏi hành vi tối ưu.</p>
+                        
+                        <div class="log-section-subtitle">1. Ma trận Đánh giá Nguồn thông tin khai thác</div>
+                        <table class="cyber-table">
+                            <thead>
+                                <tr>
+                                    <th>Nhóm nguồn tin</th>
+                                    <th>Cơ sở dữ liệu tiêu biểu</th>
+                                    <th>Giá trị cốt lõi đóng góp cho nghiên cứu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cơ sở dữ liệu học thuật</td>
+                                    <td>Google Scholar, IEEE Xplore</td>
+                                    <td>Khai thác bài báo khoa học đã qua phản biện nghiêm ngặt của chuyên gia.</td>
+                                </tr>
+                                <tr>
+                                    <td>Tạp chí khoa học uy tín</td>
+                                    <td>Nature, Applied Sciences</td>
+                                    <td>Cập nhật đột phá công nghệ và kiến trúc mạng neural tiên tiến nhất.</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                <!-- Week 5 Log -->
-                <div id="week5" class="week-log-block">
-                    <div class="log-header">
-                        <div class="log-title">Tuần 5 // Tích hợp Đa Mô hình AI Tạo sinh trong Sáng tạo Nội dung Kỹ thuật</div>
-                        <div class="log-badge">LOG_05</div>
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">🔎</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH CHỤP MÀN HÌNH TÌM KIẾM TOÁN TỬ NÂNG CAO ]</div>
+                        </div>
                     </div>
-                    <p>
-                        Thực hiện thiết kế bộ sản phẩm truyền thông kỹ thuật số tiên tiến: <strong>"Tương lai của AI trong lập trình C++ (STL & Pointers)"</strong>. Quy trình tận dụng tối đa thế mạnh cốt lõi của 3 công cụ trí tuệ nhân tạo tạo sinh hàng đầu hiện nay.
-                    </p>
-                    <div class="log-section-subtitle">Sơ đồ Quy trình Tích hợp pipeline AI:</div>
-                    <div class="code-window">
-[Google Gemini] (Brainstorming & Cấu trúc logic dàn ý)
+
+                    <!-- Week 3 Content -->
+                    <div id="log-w3" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 3: Kỹ thuật Kích hoạt Tư duy Mô hình Ngôn ngữ Lớn</div>
+                            <div class="log-badge">LOG_03</div>
+                        </div>
+                        <p>Nghiên cứu kiến trúc câu lệnh để tối ưu hóa khả năng suy luận của các mô hình LLM. Thực nghiệm chứng minh Prompt nâng cao giúp giảm thiểu 85% lỗi "ảo giác mạng neural" (AI hallucination).</p>
+                        
+                        <div class="log-section-subtitle">1. So sánh Cấp độ Prompt</div>
+                        <table class="cyber-table">
+                            <thead>
+                                <tr>
+                                    <th>Cấu trúc Prompt</th>
+                                    <th>Cú pháp minh họa</th>
+                                    <th>Cơ chế hoạt động bên trong AI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cải tiến (Structured)</td>
+                                    <td>"Giải thích khái niệm lạm phát cho sinh viên kinh tế năm nhất. Hãy kèm 2 ví dụ..."</td>
+                                    <td>Thu hẹp không gian xác suất từ ngữ, khoanh vùng tông giọng mục tiêu.</td>
+                                </tr>
+                                <tr>
+                                    <td>Nâng cao (CoT + Feynman)</td>
+                                    <td>"Đóng vai giáo sư. Giải thích theo kỹ thuật Feynman cho đứa trẻ 10 tuổi..."</td>
+                                    <td>Kích hoạt chuỗi suy luận logic (<span class="highlight-text">Chain-of-Thought</span>), chuyển hóa trừu tượng thành thực tế.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">📝</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH SO SÁNH KẾT QUẢ PROMPT TRƯỚC VÀ SAU CẢI TIẾN ]</div>
+                        </div>
+                    </div>
+
+                    <!-- Week 4 Content -->
+                    <div id="log-w4" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 4: Thiết lập và Quản trị Hệ thống Cộng tác Số</div>
+                            <div class="log-badge">LOG_04</div>
+                        </div>
+                        <p>Triển khai và tự động hóa quy trình quản lý dự án nhóm <strong>"AI Study Assistant"</strong>. Xử lý triệt để bài toán trôi thông tin và xung đột phiên bản trong môi trường trực tuyến đám mây.</p>
+                        
+                        <div class="log-section-subtitle">1. Phân bổ công cụ làm việc nhóm</div>
+                        <ul style="margin-left: 20px; color: var(--cyber-silver);">
+                            <li><strong style="color:var(--text-pure)">Trello:</strong> Cấu trúc luồng To-do $ightarrow$ Doing $ightarrow$ Done. Tích hợp robot Butler tự động hóa thẻ nhiệm vụ.</li>
+                            <li><strong style="color:var(--text-pure)">Google Workspace:</strong> Tổ chức Drive phân cấp nghiêm ngặt: <em>[Dự án] > [Tài liệu] > [Bản thảo]</em>. Thiết lập ma trận phân quyền truy cập.</li>
+                            <li><strong style="color:var(--text-pure)">Discord:</strong> Phân tách kênh thảo luận chuyên biệt theo từng Module, sử dụng Thread để cô lập thông tin.</li>
+                        </ul>
+
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">📊</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH CHỤP MÀN HÌNH BẢNG TRELLO HOẶC GITHUB REPO CỦA NHÓM ]</div>
+                        </div>
+                    </div>
+
+                    <!-- Week 5 Content -->
+                    <div id="log-w5" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 5: Tích hợp Đa Mô hình AI Sáng tạo Nội dung Kỹ thuật</div>
+                            <div class="log-badge">LOG_05</div>
+                        </div>
+                        <p>Thực hiện thiết kế bộ sản phẩm truyền thông kỹ thuật số: <strong>"Tương lai của AI trong lập trình C++ (STL & Pointers)"</strong>. Quy trình tận dụng tối đa thế mạnh cốt lõi của 3 công cụ AI tạo sinh hàng đầu.</p>
+                        
+                        <div class="log-section-subtitle">1. Sơ đồ Pipeline xử lý đa mô hình</div>
+                        <div class="code-window">
+[1. Google Gemini] (Brainstorming & Cấu trúc logic dàn ý C++20)
        │
-       ▼ (Chuyển giao mã lệnh / Tối ưu hóa sang cấu trúc C++20)
-[DALL-E 3] (Tạo hình ảnh Concept không gian làm việc Lenovo LOQ với Holographic code)
+       ▼
+[2. DALL-E 3]      (Tạo hình ảnh Concept Holographic code)
        │
-       ▼ (Chèn hậu kỳ biểu trưng nhận diện thương hiệu UET)
-[Canva AI] (Magic Design tự động hóa layout slide - Đóng góp cá nhân trên 50% tinh chỉnh thủ công)
-                    </div>
-                    <p style="margin-top: 15px;">
-                        <strong>Phân tích đạo đức công nghệ:</strong> Sinh viên duy trì tính minh bạch tuyệt đối, công khai phạm vi hỗ trợ của thuật toán sinh nội dung, tự chịu trách nhiệm độc làm về tính chính xác tuyệt đối của logic toán và thuật toán lập trình xuất bản.
-                    </p>
-                </div>
+       ▼
+[3. Canva AI]      (Magic Design tự động hóa layout - Sinh viên điều chỉnh 50%)
+                        </div>
 
-                <!-- Week 6 Log -->
-                <div id="week6" class="week-log-block">
-                    <div class="log-header">
-                        <div class="log-title">Tuần 6 // Khung Pháp lý Học đường và Bộ Nguyên tắc Cá nhân về AI có Trách nhiệm</div>
-                        <div class="log-badge">LOG_06</div>
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">🖼️</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH SLIDE/SẢN PHẨM HOÀN THIỆN ĐÃ CHỈNH SỬA ]</div>
+                        </div>
                     </div>
-                    <p>
-                        Nghiên cứu chính sách quản lý công nghệ số tại các đại học công nghệ hàng đầu khối Đại học Quốc gia. Thực hành xây dựng đề cương thuyết trình chuyên sâu: <strong>"Ứng dụng mạng Neural nhân tạo LSTM trong dự báo thời tiết tại Việt Nam"</strong> (phân tích ưu thế xử lý long-term dependencies của chuỗi thời gian so với mô hình thống kê truyền thống).
-                    </p>
-                    
-                    <div class="log-section-subtitle">Bộ 6 Nguyên tắc Bất biến của Bản thân (AI Sovereignty Rules):</div>
-                    <table class="cyber-table">
-                        <thead>
-                            <tr>
-                                <th>Mã hiệu nguyên tắc</th>
-                                <th>Tên gọi nguyên tắc</th>
-                                <th>Nội dung thực thi chi tiết kỹ thuật</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>RULE_01</td>
-                                <td>Tư duy đi trước, Công cụ theo sau</td>
-                                <td>Tự thiết lập dàn ý giải pháp toán học và thuật toán độc lập trước khi mở ứng dụng AI hỗ trợ.</td>
-                            </tr>
-                            <tr>
-                                <td>RULE_02</td>
-                                <td>Nghi ngờ mặc định (Zero Trust)</td>
-                                <td>Coi mọi số liệu do AI sinh ra đều có lỗi "ảo giác" cho đến khi tự mình đối chiếu thành công nguồn sơ cấp.</td>
-                            </tr>
-                            <tr>
-                                <td>RULE_03</td>
-                                <td>Chuyển hóa cấu trúc 100%</td>
-                                <td>Tuyệt đối không copy-paste trực tiếp; mọi dòng mã nguồn hay văn bản đều phải qua bộ lọc đọc hiểu và viết lại.</td>
-                            </tr>
-                            <tr>
-                                <td>RULE_04</td>
-                                <td>Minh bạch tuyệt đối (Full Disclosure)</td>
-                                <td>Khai báo tường minh và chính xác phạm vi, công cụ thuật toán AI tham gia hỗ trợ trong mọi báo cáo học thuật.</td>
-                            </tr>
-                            <tr>
-                                <td>RULE_05</td>
-                                <td>Tập trung vào bản chất tư duy</td>
-                                <td>Ủy nhiệm cho AI xử lý các tác vụ mang tính thủ tục; tập trung 100% năng lượng bản thân thấu hiểu bản chất thuật toán.</td>
-                            </tr>
-                            <tr>
-                                <td>RULE_06</td>
-                                <td>Tôn trọng bản quyền khoa học</td>
-                                <td>Trích dẫn chính xác công trình nghiên cứu của tác giả gốc thay vì trích dẫn chung chung tên mô hình AI hỗ trợ.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
-                <!-- NAVIGATION TO PAGE 5 -->
-                <button class="hero-btn" style="margin-top: 40px;" onclick="switchAppTab('conclusion-shell')">GO TO EXECUTION SUMMARY // NEXT PAGE</button>
+                    <!-- Week 6 Content -->
+                    <div id="log-w6" class="log-pane">
+                        <div class="log-header">
+                            <div class="log-title">Tuần 6: Khung Pháp lý và Bộ Nguyên tắc AI Cá nhân</div>
+                            <div class="log-badge">LOG_06</div>
+                        </div>
+                        <p>Nghiên cứu chính sách quản lý công nghệ số tại các đại học công nghệ hàng đầu. Thực hành xây dựng đề cương: <strong>"Ứng dụng mạng Neural nhân tạo LSTM trong dự báo thời tiết tại Việt Nam"</strong> với tư duy phản biện cao.</p>
+                        
+                        <div class="log-section-subtitle">1. Bộ Nguyên tắc Bất biến của Bản thân (AI Sovereignty Rules)</div>
+                        <table class="cyber-table">
+                            <tbody>
+                                <tr><td><strong>RULE_01</strong></td><td><strong>Tư duy đi trước:</strong> Tự thiết lập dàn ý và thuật toán độc lập trước khi mở AI.</td></tr>
+                                <tr><td><strong>RULE_02</strong></td><td><strong>Nghi ngờ mặc định:</strong> Coi mọi số liệu AI sinh ra đều có lỗi "ảo giác" cho đến khi tự kiểm chứng.</td></tr>
+                                <tr><td><strong>RULE_03</strong></td><td><strong>Chuyển hóa 100%:</strong> Tuyệt đối không copy-paste; mọi mã nguồn đều phải qua bộ lọc đọc hiểu và tự viết lại.</td></tr>
+                                <tr><td><strong>RULE_04</strong></td><td><strong>Minh bạch tuyệt đối:</strong> Khai báo tường minh công cụ thuật toán AI hỗ trợ trong báo cáo.</td></tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Image Placeholder Block -->
+                        <div class="image-placeholder">
+                            <div class="placeholder-icon">🛡️</div>
+                            <div class="placeholder-text">[ KHÔNG GIAN DÀNH CHO ẢNH INFOGRAPHIC QUY TẮC ĐẠO ĐỨC AI VÀ LIÊM CHÍNH HỌC THUẬT ]</div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation to final page -->
+                    <button class="hero-btn" style="margin-top: 30px;" onclick="switchAppTab('conclusion-shell')">GO TO EXECUTION SUMMARY // NEXT PAGE</button>
+
+                </div>
             </div>
         </div>
 
@@ -911,14 +1006,15 @@ ightarrow$ Done. Tích hợp robot Butler tự động hóa gắn nhãn phân lo
                 <p>
                     Hành trình biên tập, hệ thống hóa và chuyển hóa 6 tuần bài tập thực hành công nghệ số lên môi trường lập trình trực tuyến <strong>GitHub Pages</strong> là một bước tiến quan trọng trong tư duy quản trị tài nguyên số cá nhân của một kỹ sư AI tương lai.
                 </p>
-                <br>
-                <p>
+
+                <!-- Highlighting Both Blocks as requested -->
+                <div class="cyber-blockquote">
                     <strong>Bài học lớn nhất về làm chủ công cụ (Tool Mastery):</strong> Nhận thức rõ ràng AI không bao giờ là thực thể thay thế bộ óc phản biện. Giá trị tối cao của công cụ tạo sinh nằm ở khả năng tăng tốc độ hiện thực hóa ý tưởng, tối ưu năng suất quy trình nghiên cứu kỹ thuật. Việc làm chủ thành thạo các toán tử nâng cao, kỹ nghệ prompt gán vai, quy trình tự động hóa tác vụ giúp chuyển đổi mô hình học tập từ thu nạp thụ động sang chủ động phê bình, định hình dữ liệu có cấu trúc khoa học.
-                </p>
-                <br>
-                <p>
-                    <strong>Chiến lược ứng dụng tương lai:</strong> Toàn bộ các mảnh ghép kỹ năng số, kết hợp cùng nền tảng toán tối ưu, logic ngôn ngữ C++ và tư duy cạnh tranh nhạy bén rèn luyện từ môi trường thể thao sẽ trở thành bệ phóng vững chắc. Bản thân cam kết tuân thủ tuyệt đối chuẩn mực liêm chính học thuật, sẵn sàng ứng dụng các mô hình học sâu để giải quyết các bài toán kỹ thuật phức tạp, hướng đến xây dựng các sản phẩm công nghệ có giá trị thương mại hóa thực tiễn cao trong tương lai.
-                </p>
+                </div>
+
+                <div class="cyber-blockquote">
+                    <strong>Chiến lược ứng dụng tương lai:</strong> Toàn bộ các mảnh ghép kỹ năng số, kết hợp cùng nền tảng toán tối ưu, logic ngôn ngữ C++ và tư duy cạnh tranh nhạy bén rèn luyện từ môi trường sẽ trở thành bệ phóng vững chắc. Bản thân cam kết tuân thủ tuyệt đối chuẩn mực liêm chính học thuật, sẵn sàng ứng dụng các mô hình học sâu để giải quyết các bài toán kỹ thuật phức tạp, hướng đến xây dựng các sản phẩm công nghệ có giá trị thương mại hóa thực tiễn cao trong tương lai.
+                </div>
             </div>
         </div>
 
@@ -926,16 +1022,13 @@ ightarrow$ Done. Tích hợp robot Butler tự động hóa gắn nhãn phân lo
 
     <!-- Core Interactive Shell JavaScript Rules -->
     <script>
-        // Immersive Tab Routing System
+        // Immersive Tab Routing System for Main Navigation
         function switchAppTab(tabId) {
-            // Remove active classes from all panels
             document.querySelectorAll('.tab-content').forEach(element => {
                 element.classList.remove('active');
             });
-            // Add active class to selected panel
             document.getElementById(tabId).classList.add('active');
 
-            // Synchronize Navigation UI state
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -944,22 +1037,34 @@ ightarrow$ Done. Tích hợp robot Butler tự động hóa gắn nhãn phân lo
                 targetBtn.classList.add('active');
             }
 
-            // Smooth viewport reset
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Bridge function: jump from Lab Tile overview to Comprehensive Log directly
-        function jumpToDetailSection(weekId) {
-            // Step 1: Switch viewport to the logs tab
+        function jumpToDetailSection(logPaneId) {
             switchAppTab('details-shell');
-            
-            // Step 2: Smooth anchor scroll to the chosen log block
-            setTimeout(() => {
-                const targetBlock = document.getElementById(weekId);
-                if (targetBlock) {
-                    targetBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            switchLogTab(logPaneId);
+        }
+
+        // Internal Routing for Sidebar in Page 4 (Comprehensive Logs)
+        function switchLogTab(paneId) {
+            // Hide all log panes
+            document.querySelectorAll('.log-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            // Show targeted log pane
+            document.getElementById(paneId).classList.add('active');
+
+            // Update sidebar active state
+            document.querySelectorAll('.log-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick').includes(paneId)) {
+                    btn.classList.add('active');
                 }
-            }, 100);
+            });
+
+            // Smooth scroll to top of logs container
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
